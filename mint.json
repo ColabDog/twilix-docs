@@ -23,16 +23,10 @@
     }
   ],
   "topbarCtaButton": {
-    "name": "Get API Key",
-    "url": "https://app.twilix.io"
+    "name": "Book a demo",
+    "url": "https://twilix.io"
   },
-  "anchors": [
-    {
-      "name": "Changelog",
-      "icon": "list",
-      "url": "https://mintlify.com"
-    }
-  ],
+  "anchors": [],
   "navigation": [
     {
       "group": "Home",
@@ -56,6 +50,12 @@
       "pages": [
         "api-reference/endpoint/extract",
         "api-reference/endpoint/suggestMessage"
+      ]
+    },
+    {
+      "group": "Blog",
+      "pages": [
+        "blogs/comparison-to-langchain"
       ]
     }
   ],
