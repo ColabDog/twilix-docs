@@ -35,15 +35,9 @@
       "pages": ["home/introduction", "home/features"]
     },
     {
-      "group": "Features",
+      "group": "Tutorials",
       "pages": [
-        "tutorials/suggestmessage-quickstart"
-      ]
-    },
-    {
-      "group": "API Playground",
-      "pages": [
-        "api-reference/authentication"
+        "tutorials/suggestmessage-tutorial"
       ]
     },
     {
