@@ -40,7 +40,7 @@
     },
     {
       "group": "Tutorials",
-      "pages": ["tutorials/quickstart"]
+      "pages": ["tutorials/extract_quickstart", "tutorials/suggestmessage_quickstart"]
     },
     {
       "group": "API Documentation",
