@@ -1,11 +1,11 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Documentation Starter Kit",
+  "name": "Twilix Introduction",
   "logo": {
-    "dark": "/logo/dark.png",
-    "light": "/logo/light.png"
+    "dark": "/logo/bowtie.svg",
+    "light": "/logo/bowtie-purple.svg"
   },
-  "favicon": "/favicon.png",
+  "favicon": "/logo/bowtie.svg",
   "colors": {
     "primary": "#0069ED",
     "light": "#4D9CFF",
@@ -13,13 +13,13 @@
   },
   "topbarLinks": [
     {
-      "name": "Documentation",
-      "url": "https://mintlify.com/docs"
+      "name": "HomePage",
+      "url": "https://twilix.io"
     }
   ],
   "topbarCtaButton": {
-    "name": "Get Started",
-    "url": "https://github.com/mintlify/starter"
+    "name": "Get API Key",
+    "url": "https://app.twilix.io"
   },
   "anchors": [
     {
@@ -31,17 +31,16 @@
       "name": "Changelog",
       "icon": "list",
       "url": "https://mintlify.com"
-    },
-    {
-      "name": "Community",
-      "icon": "discord",
-      "url": "https://mintlify.com/community"
     }
   ],
   "navigation": [
     {
       "group": "Home",
-      "pages": ["introduction", "features"]
+      "pages": ["home/introduction", "home/features"]
+    },
+    {
+      "group": "Tutorials",
+      "pages": ["tutorials/quickstart"]
     },
     {
       "group": "API Documentation",

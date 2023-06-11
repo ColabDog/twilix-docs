@@ -1,0 +1,52 @@
+---
+title: "QuickStart"
+description: "Create your first endpoint in under 10 lines of code."
+---
+
+# Get started with our quickstart today 
+
+<Snippet file="installation.mdx" />
+
+After you have installed, you can use our Twilix SDK.
+
+## Extract data out of text 
+
+```typescript
+// Import the Twilix Client
+import { TwilixClient } from "twilixsdk";
+// plug in the API key
+const client = new TwilixClient(apiKey);
+
+let formValues = {
+  // plug in the text that you want to extract
+  "text":"Apple Inc. is planning to launch its new product, the iPhone 13, on September 10th, 2023. The CEO, Tim Cook, will present the keynote at the event held in San Francisco. The starting price of the iPhone 13 is rumored to be $999, which is a 10% increase from the previous model.",
+  // Now we run the extraction
+  "extractInputs":[
+    {
+        "key":"location",
+        "description":"where it is"
+    },{
+        "key":"time",
+        "description":"the date"
+    }
+  ]
+}
+// get the JSON output
+let response = await client.extract(
+  formValues
+)
+```
+
+From this, you should expect to be returned: 
+
+```json
+{
+    "location": "San Francisco",
+    "time": "September 10th 2023"
+}
+```
+
+# 🎈 Hurray!
+
+You have incorporated your first Twilix microservice.
+
