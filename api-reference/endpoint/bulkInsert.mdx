@@ -1,34 +1,21 @@
 ---
 title: Suggest Message
-api: "POST https://api.twilix.io/v1/suggestMessage"
+api: "POST https://api.twilix.io/v1/collection/bulkInsert"
 description: "Suggest a message based."
 ---
 
 ### Suggest message
 
-<ParamField body="collection" type="string">
-  This is the current user group token you have for the user group that you want
-  to rotate.
-</ParamField>
+<Snippet file="param-collection.mdx"/>
 
-<ParamField body="extractInputs" type="array" required>
-    <ParamField body="key" type="string" name="key" required>
-        What the key in the returned JSON object should be
-    </ParamField>
-    <ParamField body="description" type="string" name="description" required>
-        Describe the kind of information you want to extract
-    </ParamField>
-</ParamField>
+<Snippet file="param-objects.mdx">
 
 ### Response
 
 <ResponseExample>
 
 ```json Response
-{
-  "location": "Sydney",
-  "time": "Wednesday"
-}
+{}
 ```
 
 </ResponseExample>

@@ -37,8 +37,7 @@
     {
       "group": "Features",
       "pages": [
-        "tutorials/extract_quickstart", 
-        "tutorials/suggestmessage_quickstart"
+        "tutorials/suggestmessage-quickstart"
       ]
     },
     {
@@ -52,6 +51,12 @@
       "pages": [
         "api-reference/endpoint/extract",
         "api-reference/endpoint/suggestMessage"
+      ]
+    },
+    {
+      "group": "Data",
+      "pages": [
+        "data/insert-data"
       ]
     },
     {
