@@ -44,8 +44,7 @@
     {
       "group": "API Playground",
       "pages": [
-        "api-reference/authentication",
-        "api-spec"
+        "api-reference/authentication"
       ]
     },
     {
