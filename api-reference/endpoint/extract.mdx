@@ -1,0 +1,36 @@
+---
+title: "Extract"
+api: "POST https://api.twilix.io/v1/extract"
+description: "This endpoint extracts required data out of text"
+---
+
+### Body
+
+<ParamField body="text" type="string">
+  This is the current user group token you have for the user group that you want
+  to rotate.
+</ParamField>
+
+<ParamField body="extractInputs" type="array">
+    <Expandable title="extractInput">
+        <ParamField body="key" type="string" name="key">
+            What the key in the returned JSON object should be
+        </ParamField>
+        <ParamField body="description" type="string" name="description">
+            Describe the kind of information you want to extract
+        </ParamField>
+    </Expandable>
+</ParamField>
+
+### Response
+
+<ResponseExample>
+
+```json Response
+{
+  "location": "Sydney",
+  "time": "Wednesday"
+}
+```
+
+</ResponseExample>
