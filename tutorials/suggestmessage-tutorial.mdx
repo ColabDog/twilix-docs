@@ -32,46 +32,51 @@ const emailObject2 = {
        responseEmailID: "email-1",
        attachments: ["www.s3.objects.com/GET"]
 }
-
-fetch("https://api.twilix.io/v1/collection/bulkInsert", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-    Authorization: "Bearer <token>",
-  },
-  body: JSON.stringify({
-    collection: "emailConversation",
-    objects: [emailObject, emailObject2],
-  }),
+ const bulkInsertResponse = await fetch("http://localhost:8000/v1/collection/bulkInsert", {
+       method: "POST",
+       headers: {
+       "Content-Type": "application/json",
+       Authorization: "Bearer " + apiKey,
+       },
+       body: JSON.stringify({
+       collection: "emailConversation",
+       objects:  text.split("---").map((m: string) => {
+       return { message: m };
+       }),
+       }),
 })
-  .then((response) => response.json())
-  .then((data) => {
-    // Handle the response data
-    console.log(data);
-  })
-  .catch((error) => {
-    // Handle any errors
-    console.error("Error:", error);
-  });
-
-fetch("https://api.twilix.io/v1/collection/suggestMessage", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-    Authorization: "Bearer <token>",
-  },
-  body: JSON.stringify({
-    collection: "emailConversation",
-  }),
+.then((response) => response.json())
+       .then((data) => {
+       // Handle the response data
+       console.log(data);
 })
-  .then((response) => response.json())
-  .then((data) => {
-    // Handle the response data
-    console.log(data);
-  })
-  .catch((error) => {
-    // Handle any errors
-    console.error("Error:", error);
-  });
+.catch((error) => {
+       // Handle any errors
+       console.error("Error:", error);
+});
+
+const response = await fetch("http://localhost:8000/v1/collection/suggestMessage", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + apiKey,
+        },
+        body: JSON.stringify({
+          collection: "emailConversation",
+          objects:  text.split("---").map((m: string) => {
+            return { message: m };
+          }),
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          // Handle the response data
+          console.log(data);
+          setResponseText(JSON.stringify(data?.result?.response || ""));
+        })
+        .catch((error) => {
+          // Handle any errors
+          console.error("Error:", error);
+        });
 
 ```
