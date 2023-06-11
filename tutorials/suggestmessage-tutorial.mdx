@@ -15,16 +15,16 @@ You can use suggest message in our TypeScript SDK to power important use cases s
 
 ```typescript
 // Start a conversation
-emailObject = {
+const emailObject = {
        emailThreadID: 123,
        emailID: "email-1",
        author: "rahul",
        content: "Hi David, checking in how are you?",
-       responseEmailID: None,
-       attachments: None
+       responseEmailID: null,
+       attachments: null
 }
 
-emailObject2 = {
+const emailObject2 = {
        emailThreadID: 123,
        emailID: "email-2",
        author: "jacky",
@@ -33,30 +33,45 @@ emailObject2 = {
        attachments: ["www.s3.objects.com/GET"]
 }
 
-fetch(
-       "https://api.twilix.io/collection/bulkInsert",
-       {
-              headers: {
-                     Authorization: "Bearer <token>"
-              }
-       },
-       {
-              collection: "emailConversation",
-              objects: [emailObject, emailObject2]
-       }
-)
+fetch("https://api.twilix.io/v1/collection/bulkInsert", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: "Bearer <token>",
+  },
+  body: JSON.stringify({
+    collection: "emailConversation",
+    objects: [emailObject, emailObject2],
+  }),
+})
+  .then((response) => response.json())
+  .then((data) => {
+    // Handle the response data
+    console.log(data);
+  })
+  .catch((error) => {
+    // Handle any errors
+    console.error("Error:", error);
+  });
 
-suggestion = fetch(
-       "https://api.twilix.io/collection/suggestMessage",
-       {
-              headers: {
-                     Authorization: "Bearer <token>"
-              }
-       },
-       {
-              collection: "emailConversation"
-       }
-)
+fetch("https://api.twilix.io/v1/collection/suggestMessage", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: "Bearer <token>",
+  },
+  body: JSON.stringify({
+    collection: "emailConversation",
+  }),
+})
+  .then((response) => response.json())
+  .then((data) => {
+    // Handle the response data
+    console.log(data);
+  })
+  .catch((error) => {
+    // Handle any errors
+    console.error("Error:", error);
+  });
 
-print(suggestion)
 ```

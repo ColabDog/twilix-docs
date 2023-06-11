@@ -2,7 +2,7 @@
   "$schema": "https://mintlify.com/schema.json",
   "analytics": {
     "posthog": {
-      "apiKey": "phc_44N9zFU2a82MXu2H4LKQQktvcWMq3G4JRazEiY8KHpZ",
+      "apiKey": "phc_44N9zFU2a82MXu2H4LKQQktvcWMq3G4JRazEiY8KHpZ"
     }
   },
   "api": {
