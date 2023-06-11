@@ -56,7 +56,10 @@
     {
       "group": "Data",
       "pages": [
-        "data/insert-data"
+        "data/insert-data",
+        "api-reference/endpoint/schema",
+        "api-reference/endpoint/deleteObject",
+        "api-reference/endpoint/bulkInsert"
       ]
     },
     {
