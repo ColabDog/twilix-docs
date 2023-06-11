@@ -6,21 +6,11 @@ description: "Suggest a message based."
 
 ### Suggest message
 
-<ParamField body="text" type="string">
-  This is the current user group token you have for the user group that you want
-  to rotate.
+<ParamField body="fields" type="array">
+    What fields do you want to base your response off of?
 </ParamField>
 
-<ParamField body="extractInputs" type="array">
-    <Expandable title="extractInput">
-        <ParamField body="key" type="string" name="key">
-            What the key in the returned JSON object should be
-        </ParamField>
-        <ParamField body="description" type="string" name="description">
-            Describe the kind of information you want to extract
-        </ParamField>
-    </Expandable>
-</ParamField>
+<Snippet file="sort-parameter.mdx"/>
 
 ### Response
 
@@ -28,9 +18,7 @@ description: "Suggest a message based."
 
 ```json Response
 {
-  "location": "Sydney",
-  "time": "Wednesday"
+    "response": "Thanks John! I appreciate your gift. And yes glad to meet you this Friday! See you there!"
 }
 ```
-
 </ResponseExample>
