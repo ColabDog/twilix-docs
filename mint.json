@@ -3,13 +3,15 @@
   "api": {
       "auth": {
           "method": "bearer"
-      }
+      },
+    "baseUrl": "http://api.twilix.io"
   },
   "name": "Twilix Introduction",
   "logo": {
     "dark": "/logo/bowtie.svg",
     "light": "/logo/bowtie-purple.svg"
   },
+  "openapi": "https://api.twilix.io/openapi.json",
   "favicon": "/logo/bowtie.svg",
   "colors": {
     "primary": "#0069ED",
@@ -42,7 +44,8 @@
     {
       "group": "API Playground",
       "pages": [
-        "api-reference/authentication"
+        "api-reference/authentication",
+        "api-spec"
       ]
     },
     {
