@@ -5,78 +5,83 @@ description: "Get started in under 10 lines of code for auto-messaging"
 
 # Intro
 
-You can use suggest message in our TypeScript SDK to power important use cases such as: 
+You can use suggest message in our TypeScript SDK to power important use cases such as:
 
 - Responding to an email thread
 - Drafting cold messages or emails
 - Crafting personalised invitations or responses
 
-<Snippet file="installation.mdx"/>
+<Snippet file="installation.mdx" />
 
 ```typescript
 // Start a conversation
 const emailObject = {
-       emailThreadID: 123,
-       emailID: "email-1",
-       author: "rahul",
-       content: "Hi David, checking in how are you?",
-       responseEmailID: null,
-       attachments: null
-}
+  emailThreadID: 123,
+  emailID: "email-1",
+  author: "rahul",
+  content: "Hi David, checking in how are you?",
+  responseEmailID: null,
+  attachments: null,
+};
 
 const emailObject2 = {
-       emailThreadID: 123,
-       emailID: "email-2",
-       author: "jacky",
-       content: "I'm great thanks! Let's catch up for coffee when you are free.",
-       responseEmailID: "email-1",
-       attachments: ["www.s3.objects.com/GET"]
-}
- const bulkInsertResponse = await fetch("http://localhost:8000/v1/collection/bulkInsert", {
-       method: "POST",
-       headers: {
-       "Content-Type": "application/json",
-       Authorization: "Bearer " + apiKey,
-       },
-       body: JSON.stringify({
-       collection: "emailConversation",
-       objects:  text.split("---").map((m: string) => {
-       return { message: m };
-       }),
-       }),
-})
-.then((response) => response.json())
-       .then((data) => {
-       // Handle the response data
-       console.log(data);
-})
-.catch((error) => {
-       // Handle any errors
-       console.error("Error:", error);
-});
+  emailThreadID: 123,
+  emailID: "email-2",
+  author: "jacky",
+  content: "I'm great thanks! Let's catch up for coffee when you are free.",
+  responseEmailID: "email-1",
+  attachments: ["www.s3.objects.com/GET"],
+};
+const bulkInsertResponse = await fetch(
+  "http://localhost:8000/v1/collection/bulkInsert",
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + apiKey,
+    },
+    body: JSON.stringify({
+      collection: "emailConversation",
+      objects: text.split("---").map((m: string) => {
+        return { message: m };
+      }),
+    }),
+  }
+)
+  .then((response) => response.json())
+  .then((data) => {
+    // Handle the response data
+    console.log(data);
+  })
+  .catch((error) => {
+    // Handle any errors
+    console.error("Error:", error);
+  });
 
-const response = await fetch("http://localhost:8000/v1/collection/suggestMessage", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + apiKey,
-        },
-        body: JSON.stringify({
-          collection: "emailConversation",
-          objects:  text.split("---").map((m: string) => {
-            return { message: m };
-          }),
-        }),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          // Handle the response data
-          console.log(data);
-          setResponseText(JSON.stringify(data?.result?.response || ""));
-        })
-        .catch((error) => {
-          // Handle any errors
-          console.error("Error:", error);
-        });
-
+const response = await fetch(
+  "http://localhost:8000/v1/collection/suggestMessage",
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + apiKey,
+    },
+    body: JSON.stringify({
+      collection: "emailConversation",
+      objects: text.split("---").map((m: string) => {
+        return { message: m };
+      }),
+    }),
+  }
+)
+  .then((response) => response.json())
+  .then((data) => {
+    // Handle the response data
+    console.log(data);
+    setResponseText(JSON.stringify(data?.result?.response || ""));
+  })
+  .catch((error) => {
+    // Handle any errors
+    console.error("Error:", error);
+  });
 ```

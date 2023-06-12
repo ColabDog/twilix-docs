@@ -6,9 +6,9 @@
     }
   },
   "api": {
-      "auth": {
-          "method": "bearer"
-      },
+    "auth": {
+      "method": "bearer"
+    },
     "baseUrl": "http://api.twilix.io"
   },
   "name": "Twilix Introduction",
@@ -41,9 +41,7 @@
     },
     {
       "group": "Tutorials",
-      "pages": [
-        "tutorials/suggestmessage-tutorial"
-      ]
+      "pages": ["tutorials/suggestmessage-tutorial"]
     },
     {
       "group": "Features",
@@ -66,9 +64,7 @@
     },
     {
       "group": "Blog",
-      "pages": [
-        "blogs/comparison-to-langchain"
-      ]
+      "pages": ["blogs/comparison-to-langchain"]
     }
   ],
   "footerSocials": {
