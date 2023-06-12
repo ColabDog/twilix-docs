@@ -49,7 +49,8 @@
       "group": "Features",
       "pages": [
         "api-reference/endpoint/extract",
-        "api-reference/endpoint/suggestMessage"
+        "api-reference/endpoint/suggestMessage",
+        "api-reference/endpoint/summarize"
       ]
     },
     {
