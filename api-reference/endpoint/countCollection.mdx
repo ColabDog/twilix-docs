@@ -5,5 +5,21 @@ description: "Count the number of objects in a collection"
 ---
 
 <Snippet file="installation.mdx" />
-<Snippet file="param-collection.mdx" />
+<ParamField query="collection" type="string">
+  This is the current user group token you have for the user group that you want
+  to rotate.
+</ParamField>
+
+<ResponseField name="count" type="integer">
+Returns the number of objects in a collection.
+</ResponseField>
+
+<ResponseExample>
+
+```json Response
+{
+  "count": 21
+}
+```
+</ResponseExample>
 <Snippet file="header-application-type.mdx" />
