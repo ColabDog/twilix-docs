@@ -59,7 +59,8 @@
         "api-reference/endpoint/bulkInsert",
         "api-reference/endpoint/insertPdf",
         "api-reference/endpoint/deleteCollection",
-        "api-reference/endpoint/deleteObject"
+        "api-reference/endpoint/deleteObject",
+        "api-reference/endpoint/countCollection"
       ]
     },
     {
