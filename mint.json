@@ -48,7 +48,8 @@
       "pages": [
         "api-reference/endpoint/extract",
         "api-reference/endpoint/suggestMessage",
-        "api-reference/endpoint/summarize"
+        "api-reference/endpoint/summarize",
+        "api-reference/endpoint/generativeQA"
       ]
     },
     {
