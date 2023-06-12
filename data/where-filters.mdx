@@ -1,0 +1,202 @@
+---
+title: "Where filters"
+description: "Learn how to filter in Twilix."
+---
+
+`Where` filters are an essential and powerful feature 
+of Twilix. They allow you to filter your queries based 
+on specific criteria. In this guide, we will cover 
+different operators you can use with the where filter 
+and provide examples for each operator.
+
+# where Filter Syntax
+
+The basic syntax for a where filter is as follows:
+
+```json
+{
+  "where": {
+    "operator": OPERATOR,
+    "field": "fieldName",
+    "value": VALUE
+  }
+}
+```
+
+Replace OPERATOR with one of the supported operators, fieldName with the desired field name, and VALUE with the appropriate value for the given field.
+
+# Operators
+
+## Equal
+
+This operator checks if the given field is equal to the specified value. It can be used with numbers, strings, and booleans.
+
+Example:
+```
+{
+  "where": {
+    "operator": "Equal",
+    "field": "name",
+    "value": "John Doe"
+  }
+}
+```
+
+## Not Equal
+
+This operator checks if the given field is not equal to the specified value. It can be used with numbers, strings, and booleans.
+
+Example:
+
+```
+{
+  "where": {
+    "operator": "NotEqual",
+    "field": "age",
+    "value": 30
+  }
+}
+```
+
+## GreaterThan
+
+This operator checks if the given field is greater than the specified value. It can be used with numbers.
+
+Example:
+
+```
+{
+  "where": {
+    "operator": "GreaterThan",
+    "field": "age",
+    "value": 18
+  }
+}
+```
+
+## GreaterThanEqual
+
+This operator checks if the given field is greater than or equal to the specified value. It can be used with numbers.
+
+Example:
+
+```
+{
+  "where": {
+    "operator": "GreaterThanEqual",
+    "field": "age",
+    "value": 21
+  }
+}
+```
+
+## LessThan
+
+This operator checks if the given field is less than the specified value. It can be used with numbers.
+
+Example:
+
+```
+{
+  "where": {
+    "operator": "LessThan",
+    "field": "age",
+    "value": 65
+  }
+}
+```
+
+## LessThanEqual
+
+This operator checks if the given field is less than or equal to the specified value. It can be used with numbers.
+
+Example:
+
+
+```
+{
+  "where": {
+    "operator": "LessThanEqual",
+    "field": "age",
+    "value": 65
+  }
+}
+```
+
+## In
+
+This operator checks if the given field is equal to one of the specified values in a list. It can be used with numbers, strings, and booleans.
+
+Example:
+
+```
+{
+  "where": {
+    "operator": "In",
+    "field": "country",
+    "value": ["USA", "Canada", "Mexico"]
+  }
+}
+```
+
+## Not In
+
+This operator checks if the given field is not equal to any of the specified values in a list. It can be used with numbers, strings, and booleans.
+
+Example:
+
+```
+{
+  "where": {
+    "operator": "NotIn",
+    "field": "country",
+    "value": ["USA", "Canada", "Mexico"]
+  }
+}
+```
+
+## Contains
+
+This operator checks if the given field, which should be a string, contains the specified value as a substring. It checks for case-sensitive matches.
+
+Example:
+
+```
+{
+  "where": {
+    "operator": "Contains",
+    "field": "name",
+    "value": "Doe"
+  }
+}
+```
+
+## and / or operator
+
+Using the AND operator:
+
+```json
+{
+  "where": {
+    "operator": "And",
+    "operands": [
+        ...
+    ]
+  }
+}
+```
+
+Using the OR operator:
+
+```json
+{
+  "where": {
+    "operator": "OR",
+    "operands": [
+        ...
+    ]
+  }
+}
+```
+
+Using where filters in Twilix queries enables you to filter data more effectively. By leveraging different operators, you can create various conditions to retrieve the information you require. Remember to replace "path" with "field" and use strings instead of lists for the field values when creating your where filters.
