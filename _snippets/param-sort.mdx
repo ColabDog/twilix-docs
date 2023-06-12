@@ -1,3 +1,20 @@
 <ParamField body="sort" type="array">
   A list of sort objects. For example:
+
+```
+[
+    {"field": "field1", "order": "asc"},
+    {"field": "field2", "order": "desc"}
+]
+```
+
+  <Expandable title="sort">
+    <ParamField body="field" type="string" name="field" required>
+      What the key in the returned JSON object should be
+    </ParamField>
+    <ParamField body="order" type="string" name="order" required>
+      Describe the kind of information you want to extract
+    </ParamField>
+  </Expandable>
+
 </ParamField>
