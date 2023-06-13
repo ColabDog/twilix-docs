@@ -1,0 +1,94 @@
+---
+title: "Terminologies"
+---
+In this section, we're going to quickly go over some important terms we will be using throughout this documentation, most of which will be related to storing and querying data in your vectorstore. 
+
+<Note>
+Although we're going to draw analogies when explaining terminologies based on the assumption that your data is primarily stored in a SQL database, the same concepts can be applied to NoSQL databases, or even unstructured data like PDFs.
+</Note>
+
+## AI Services
+"AI Services" is an unbrella term we use to encapsulate all the AI functionalities that Twilix offers out of the box. This includes semantic search, text summarization, data extraction, message suggestion, and generative Q&A.
+
+## Vectorstore
+The "vectorstore" refers to your Twilix vector database (if you're on the starter plan, your data will hosted be in a public, shared vector database instead). Your vectorstore is an important part of our API offerings because it allows us offer AI services custom to your data.
+
+<Note>
+  For most cases, you shouldn't use Twilix's vectorstore as your primary datasource/database. It's **highly recommended** that you use our vectorstore as a layer on top of your primary datasource. For example, you might have a postgresQL database, and in your application you can implement hooks to keep the data in your Twilix vectorstore in sync with changes. 
+</Note>
+
+## Schema
+A "schema" refers to the data structure of your vectorstore (analogous to a database schema). A schema consists of collections, and each collection contains objects of the same type. These objects all have the same fields, and together, they form the schema. 
+
+
+## Collections
+A "collection" refers to a specific group of objects in your Twilix vectorstore (analogous to a table of rows in SQL, and similar to a class in programming). When you store objects in your vectorstore, you are required to specify which collection it belongs to by providing a collection name. 
+
+**Collection names should be in camelCase and are case sensitive**. By grouping objects into a collection, you can store, query, update, and delete them more easily in the future.
+
+<Tip>
+ To simplify the logic behind processing and transforming data when sending data to/from your vectorstore, we recommend a one to one mapping from your database table to a collection.
+</Tip>
+
+## Objects
+An "object" refers to a JSON object stored in your vectorstore as part of a collection (analogous to a row in SQL, and similar to an instance of a class in programming). 
+
+<Tip>
+Similar to collections, we recommend a one to one mapping from rows in your database to objects you're inserting.
+</Tip>
+
+## Fields
+A "field" refers to a property in an object (analogous to a column in SQL, and similar to class variables in programming). Each field has a type, and the type is inferred upon data insertion. 
+
+These are the field types that are currently supported:
+1. string
+2. int
+3. boolean
+4. float
+5. data
+6. uuid
+7. blob
+
+<Tip>
+You don't have to map every column in your database to fields in your vectorstore. Depending on your specific needs, you can leave out certain columns as you see fit, so that objects in your vectorstore are subsets of the rows in your database.
+</Tip>
+
+## Putting it all together
+Here's a quick example of how collections, objects, and fields work together to form your vectorstore schema (don't worry if you don't understand how we're sending and storing data to your Twilix vectorstore, we will explain those in detail under the "Vectorstore" section).
+
+```typescript example.ts
+// define global variables to keep collection names consistent
+const COLLECTIONS = {
+    EMAIL: "email",
+    USER: "user",
+}
+
+// we're going to be using axios to send the HTTP request
+const axios = require('axios');
+
+// define the request body data by specifying the collection to store objects in
+let data = {
+    collection: COLLECTIONS.EMAIL,
+    objects: arrayOfObjects,
+};
+
+// send the request to store objects in your vectorstore
+axios({
+    url: "https://api.twilix.io/v1/collection/bulkInsert",
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + apiKey,
+    },
+    data: data
+}).then(response => {
+    console.log(response.data);
+}).catch(error => {
+    console.error(error);
+});
+
+```
+
+Notice how your schema is automatically inferred based on the object you imported to your collection! 
+
+In the next section, we will talk about how Twilix uses data in your vectorstore to deliver you customized AI services, and how you can implement it using our APIs.
