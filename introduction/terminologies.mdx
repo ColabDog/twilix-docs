@@ -11,7 +11,7 @@ Although we're going to draw analogies when explaining terminologies based on th
 "AI Services" is an unbrella term we use to encapsulate all the AI functionalities that Twilix offers out of the box. This includes semantic search, text summarization, data extraction, message suggestion, and generative QA.
 
 ## Vectorstore
-The "vectorstore" refers to your Twilix vector database (if you're on the starter plan, your data will hosted be in a public, shared vector database instead). Your vectorstore is an important part of our API offerings because it allows us offer AI services custom to your data.
+The "vectorstore" refers to your Twilix vector database (if you're on the starter plan, your data will hosted be in a public, shared vector database instead). Your vectorstore is an important part of our API offerings because it allows us to offer AI services custom to your data.
 
 <Note>
   For most cases, you shouldn't use Twilix's vectorstore as your primary datasource/database. It's **highly recommended** that you use our vectorstore as a layer on top of your primary datasource. For example, you might have a postgresQL database, and in your application you can implement hooks to keep the data in your Twilix vectorstore in sync with changes. 
@@ -34,7 +34,7 @@ A "collection" refers to a specific group of objects in your Twilix vectorstore 
 An "object" refers to a JSON object stored in your vectorstore as part of a collection (analogous to a row in SQL, and similar to an instance of a class in programming). 
 
 <Tip>
-Similar to collections, we recommend a one to one mapping from rows in your database to objects you're inserting.
+Similar to collections, we recommend a one to one mapping from the rows in your database to the objects you're inserting.
 </Tip>
 
 ## Fields
@@ -50,11 +50,11 @@ These are the field types that are currently supported:
 7. blob
 
 <Tip>
-You don't have to map every column in your database to fields in your vectorstore. Depending on your specific needs, you can leave out certain columns as you see fit, so that objects in your vectorstore are subsets of the rows in your database.
+You don't have to map every column in your database table to fields in your object. Depending on your specific needs, you can leave out certain columns as you see fit, so that objects in your vectorstore are subsets of rows in your database.
 </Tip>
 
 ## Putting it all together
-Here's a quick example of how collections, objects, and fields work together to form your vectorstore schema (don't worry if you don't understand how we're sending and storing data to your Twilix vectorstore, we will explain those in detail under the "Vectorstore" section).
+Here's a quick example of how collections, objects, and fields work together to form your vectorstore schema (don't worry if you don't understand how we're sending and storing data in your Twilix vectorstore, we will explain those in detail under the "Vectorstore" section).
 
 ```typescript example.ts
 // define global variables to keep collection names consistent
