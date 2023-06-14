@@ -13,9 +13,9 @@ Although we're going to draw analogies when explaining terminologies based on th
 ## Vectorstore
 The "vectorstore" refers to your Twilix vector database (if you're on the starter plan, your data will hosted be in a public, shared vector database instead). Your vectorstore is an important part of our API offerings because it allows us to offer AI services custom to your data.
 
-<Note>
-  For most cases, you shouldn't use Twilix's vectorstore as your primary datasource/database. It's **highly recommended** that you use our vectorstore as a layer on top of your primary datasource. For example, you might have a postgresQL database, and in your application you can implement hooks to keep the data in your Twilix vectorstore in sync with changes. 
-</Note>
+<Tip>
+  Although you can use Twilix's vectorstore as your primary database/datasource, it is not as common as using vectorstores as a layer on top of your primary datasource. For example, you might have a postgresQL database, and in your application you can implement hooks to keep the data in your Twilix vectorstore in sync with changes. 
+</Tip>
 
 ## Schema
 A "schema" refers to the data structure of your vectorstore (analogous to a database schema). A schema consists of collections, and each collection contains objects of the same type. These objects all have the same fields, and together, they form the schema. 
@@ -78,7 +78,7 @@ axios({
     method: "POST",
     headers: {
         "Content-Type": "application/json",
-        Authorization: "Bearer " + apiKey,
+        "Authorization": "Bearer " + apiKey,
     },
     data: data
 }).then(response => {
@@ -87,8 +87,21 @@ axios({
     console.error(error);
 });
 
+axios({
+    url: "https://api.twilix.io/v1/schema",
+    method: "GET",
+    headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + apiKey,
+    }
+}).then(response => {
+    console.log(response.data);
+}).catch(error => {
+    console.error(error);
+});
+
 ```
 
-Notice how your schema is automatically inferred based on the object you imported to your collection! 
+Notice how your schema is automatically generated based on the object you imported to your collection! 
 
 In the next section, we will talk about how Twilix uses data in your vectorstore to deliver you customized AI services, and how you can implement it using our APIs.
