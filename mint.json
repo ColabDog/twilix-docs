@@ -49,7 +49,7 @@
       ]
     },
     {
-      "group": "Data Store",
+      "group": "Vectorstore",
       "pages": [
         "data/insert-data",
         "data/where-filters",

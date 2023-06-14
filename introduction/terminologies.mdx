@@ -11,7 +11,7 @@ Although we're going to draw analogies when explaining terminologies based on th
 "AI Services" is an unbrella term we use to encapsulate all the AI functionalities that Twilix offers out of the box. This includes semantic search, text summarization, data extraction, message suggestion, and generative QA.
 
 ## Vectorstore
-The "vectorstore" refers to your Twilix vector database (if you're on the starter plan, your data will hosted be in a public, shared vector database instead). Your vectorstore is an important part of our API offerings because it allows us to offer AI services custom to your data.
+The "vectorstore" refers to your Twilix vector database (if you're on the starter plan, your data will hosted be in a public, shared vector database instead). Your vectorstore is an important part of our API offerings because it allows us to offer AI services custom to your data, **but you do not need to know how it works under the hood to use Twilix.**
 
 <Tip>
   Although you can use Twilix's vectorstore as your primary database/datasource, it is not as common as using vectorstores as a layer on top of your primary datasource. For example, you might have a postgresQL database, and in your application you can implement hooks to keep the data in your Twilix vectorstore in sync with changes. 
