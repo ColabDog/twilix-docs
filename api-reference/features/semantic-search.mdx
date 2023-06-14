@@ -1,0 +1,32 @@
+---
+title: "Semantic Search"
+api: "POST https://api.twilix.io/v1/search"
+description: "A guide on how to use semantic search by Twilix."
+---
+
+### Body
+
+<ParamField body="text" type="string">
+  The query you want the semantic search result of
+</ParamField>
+
+<Snippet file="param-limit.mdx"/>
+<ParamField body="fieldsToSearch" type="string">
+  What fields do you want to search.
+</ParamField>
+<Snippet file="param-where.mdx"/>
+
+### Response
+
+<ResponseExample>
+
+```json Response
+{
+  "location": "Sydney",
+  "time": "Wednesday"
+}
+```
+
+</ResponseExample>
+
+<Snippet file="header-application-type.mdx" />
