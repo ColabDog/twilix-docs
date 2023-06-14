@@ -14,7 +14,7 @@
   "name": "Twilix Introduction",
   "logo": {
     "dark": "/logo/bowtie.svg",
-    "light": "/logo/bowtie-black.svg"
+    "light": "/logo/bowtie-purple.svg"
   },
   "openapi": "https://api.twilix.io/openapi.json",
   "favicon": "/logo/bowtie.svg",
@@ -23,6 +23,16 @@
     "light": "#4D9CFF",
     "dark": "#0050B4"
   },
+  "topbarLinks": [
+    {
+      "name": "Home",
+      "url": "https://twilix.io"
+    },
+    {
+      "name": "Join our discord",
+      "url": "https://discord.gg/hU27KaGR!"
+    }
+  ],
   "topbarCtaButton": {
     "name": "Launch web app",
     "url": "https://twilix.io"
@@ -30,20 +40,24 @@
   "anchors": [],
   "navigation": [
     {
-      "group": "Introduction",
-      "pages": ["introduction/getting-started", "introduction/terminologies", "introduction/concepts"]
+      "group": "Home",
+      "pages": ["home/introduction", "home/features"]
     },
     {
-      "group": "AI Services",
+      "group": "Tutorials",
+      "pages": ["tutorials/suggestmessage-tutorial"]
+    },
+    {
+      "group": "Features",
       "pages": [
-        "api-reference/features/data-extraction",
-        "api-reference/features/message-suggestion",
-        "api-reference/features/summarization",
-        "api-reference/features/generative-q&a"
+        "api-reference/endpoint/extract",
+        "api-reference/endpoint/suggestMessage",
+        "api-reference/endpoint/summarize",
+        "api-reference/endpoint/generativeQA"
       ]
     },
     {
-      "group": "Vectorstore",
+      "group": "Data",
       "pages": [
         "data/insert-data",
         "data/where-filters",
@@ -55,10 +69,6 @@
         "api-reference/endpoint/countCollection",
         "api-reference/endpoint/listObjects"
       ]
-    },
-    {
-      "group": "Tutorials",
-      "pages": ["tutorials/suggestmessage-tutorial"]
     },
     {
       "group": "Blog",
