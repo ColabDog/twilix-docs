@@ -1,10 +1,11 @@
 ---
 title: Message Suggestion
 api: "POST https://api.twilix.io/v1/collection/suggestMessage"
-description: "This endpoint allows you to suggest a message based on data (eg. email thread, chat conversations, or even user data like a LinkedIn profile). You can provide both external data and/or use data in your vectorstore to suggest a message based on your custom prompt."
 ---
 
-### Suggest message
+This endpoint allows you to suggest a message based on data (eg. email thread, chat conversations, or even user data like a LinkedIn profile). You can provide both external data and/or use data in your vectorstore to suggest a message based on your custom prompt.
+
+### Request Body
 
 <Snippet file="param-collection.mdx" />
 <Snippet file="param-sort.mdx" />
@@ -12,9 +13,73 @@ description: "This endpoint allows you to suggest a message based on data (eg. e
 <Snippet file="param-prompt.mdx" />
 <Snippet file="param-where.mdx" />
 <Snippet file="param-limit.mdx" />
-<Snippet file="header-application-type.mdx" />
 
 ### Response
+<Snippet file="header-application-type.mdx" />
+
+
+
+# Example
+```typescript message-suggestion.ts
+
+// we're going to be using axios to send the HTTP request
+const axios = require('axios');
+
+// we're going to get emails in this email thread
+const emailThreadID = 123
+
+// define the request body data by specifying the data to use to 
+// craft the reply
+let data = {
+    // search in the email collection
+    collection: "email",
+
+    // customize the reply
+    prompt: "reply in the tone of a 10 year old",
+
+    // choose which fields to pass into BlitzChain as context
+    fields: ["message", "sender"],
+
+    // filter for emails belonging to a specific email thread
+    where: {
+      "field": "emailThreadID",
+      "operator": "Equals",
+      "valueInt": emailThreadID
+    },
+
+    // sort in descending order
+    sort: [
+      {
+        "datetime": "DESC"
+      }
+    ],
+
+    // get first 5 emails matching the filter (since 
+    // we are sorting in descending order, these will 
+    // be the 5 most recent emails)
+    limit: 5
+};
+
+
+// send the request to suggest a message
+axios({
+    url: "https://api.twilix.io/v1/collection/suggestMessage",
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + apiKey,
+    },
+    data: data
+}).then(response => {
+    console.log(response.data);
+}).catch(error => {
+    console.error(error);
+});
+
+
+```
+
+
 
 <ResponseExample>
 ```json Response
