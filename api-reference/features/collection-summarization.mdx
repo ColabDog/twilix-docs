@@ -1,0 +1,17 @@
+---
+title: "Collection-level Summarization"
+api: "POST https://api.twilix.io/v1/collection/summarize"
+description: "Summarize an entire PDF, document or powerpoint presentation"
+---
+
+<Snippet file="installation.mdx" />
+Summarize an entire collection in 1 line of code. The summary is automatically stored so you won't need to re-compute in the 
+future.
+<Snippet file="param-collection.mdx">
+<Snippet file="param-fields.mdx">
+<Snippet file="param-where.mdx">
+<ParamField body="refresh" type="boolean">
+  If True, it will re-compute summary otherwise it fetches from storage.
+</ParamField>
+
+<Snippet file="header-application-type.mdx" />
