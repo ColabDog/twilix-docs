@@ -1,11 +1,55 @@
 ---
 title: "Summarization"
 api: "POST https://api.twilix.io/v1/summarize"
-description: "Summarize text"
 ---
 
-<Snippet file="installation.mdx" />
+## Request Body
 <ParamField body="query" type="string">
   Provide a simple summary of your text.
 </ParamField>
+
+## Response
 <Snippet file="header-application-type.mdx" />
+
+
+
+# Example
+```typescript summarization.ts
+// we're going to be using axios to send the HTTP request
+const axios = require('axios');
+
+
+// define the request body data by specifying the text
+// to summarize
+let data = {
+  query: `Ron DeSantis's long-awaited entry into the 2024 
+            race for the White House was hit by technical 
+            glitches after a Twitter livestream malfunctioned. 
+            It meant the Florida governor's bid for the Republican 
+            presidential nomination got under way 20 minutes late.
+  
+            He went on to use the event to champion his conservative 
+            credentials, his anti-lockdown stance and education reforms.
+  
+            "I am running for president of the United States to lead our 
+            great American comeback," he said.`
+};
+
+
+// send the request to suggest a message
+axios({
+    url: "https://api.twilix.io/v1/summarize",
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + apiKey,
+    },
+    data: data
+}).then(response => {
+    console.log(response.data);
+}).catch(error => {
+    console.error(error);
+});
+
+
+```

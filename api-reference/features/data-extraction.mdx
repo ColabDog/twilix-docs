@@ -1,13 +1,14 @@
 ---
 title: "Data Extraction"
 api: "POST https://api.twilix.io/v1/extract"
-description: "This endpoint extracts required data out of text"
 ---
 
-### Body
+This endpoint extracts required data out of text
+
+### Request Body
 
 <ParamField body="text" type="string">
-  What text do you want to extract out of. Current limited to 3000 words.
+  The piece of text you want to extract data from. Currently limited to 3000 words.
 </ParamField>
 
 <ParamField body="extractInputs" type="array">
@@ -33,5 +34,74 @@ description: "This endpoint extracts required data out of text"
 ```
 
 </ResponseExample>
-
 <Snippet file="header-application-type.mdx" />
+
+
+# Example
+```typescript data-extraction.ts
+
+// we're going to be using axios to send the HTTP request
+const axios = require('axios');
+
+
+// define the request body data by specifying the text to extract data from,
+// and the data you want to extra
+let data = {
+    text: `Ron DeSantis's long-awaited entry into the 2024 
+            race for the White House was hit by technical 
+            glitches after a Twitter livestream malfunctioned. 
+            It meant the Florida governor's bid for the Republican 
+            presidential nomination got under way 20 minutes late.
+  
+            He went on to use the event to champion his conservative 
+            credentials, his anti-lockdown stance and education reforms.
+  
+            "I am running for president of the United States to lead our 
+            great American comeback," he said.`,
+    extractInputs: [
+      {
+        "key": "state",
+        "description": "state name"
+      },
+      {
+        "key": "political party",
+        "description": "name of political party"
+      },
+      {
+        "name": "name",
+        "description": "name"
+      }
+      {
+        "name": "age",
+        "description": "age"
+      }
+    ],
+};
+
+
+// send the request to extract data
+axios({
+    url: "https://api.twilix.io/v1/extract",
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + apiKey,
+    },
+    data: data
+}).then(response => {
+    console.log(response.data);
+}).catch(error => {
+    console.error(error);
+});
+
+// output:
+// {
+//  "state": "florida",
+//  "political party": "republican",
+//  "name": "Ron DeSantis",
+//  "age": null
+// }
+
+```
+
+Notice how the "age" field is null! We can automatically detect data that's missing from text.
