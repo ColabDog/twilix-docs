@@ -1,0 +1,64 @@
+---
+title: "Collection-level Summarization"
+api: "POST https://api.twilix.io/v1/collection/summarize"
+---
+
+Summarize an entire PDF, document or powerpoint presentation
+
+
+<Snippet file="installation.mdx" />
+Summarize an entire collection in 1 line of code. The summary is automatically stored so you won't need to re-compute in the 
+future.
+
+<Snippet file="param-collection.mdx" />
+<Snippet file="param-fields.mdx" />
+<Snippet file="param-where.mdx" />
+<ParamField body="refresh" type="boolean">
+  If True, it will re-compute summary otherwise it fetches from storage.
+</ParamField>
+
+<Snippet file="header-application-type.mdx" />
+
+
+# Example
+```typescript collection-summarization.ts
+// we're going to be using axios to send the HTTP request
+const axios = require('axios');
+
+
+// define the request body data by specifying the text
+// to summarize
+let data = {
+    // use objects in the email collection
+    collection: "email",
+
+    // choose which fields to pass into BlitzChain to summarize
+    fields: ["message", "sender"],
+
+    // filter for emails belonging to a specific email thread
+    where: {
+      "field": "emailThreadID",
+      "operator": "Equals",
+      "valueInt": emailThreadID
+    },
+    refresh: true,
+};
+
+
+// send the request to summarize an email thread
+axios({
+    url: "https://api.twilix.io/v1/collection/summarize",
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + apiKey,
+    },
+    data: data
+}).then(response => {
+    console.log(response.data);
+}).catch(error => {
+    console.error(error);
+});
+
+
+```
