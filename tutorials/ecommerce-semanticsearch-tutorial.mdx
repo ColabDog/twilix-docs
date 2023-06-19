@@ -1,0 +1,102 @@
+---
+title: "Semantic Search on E-Commerce"
+description: "Get started in under 10 lines of code for semantic search"
+---
+
+# Intro
+
+This can power use cases such as:
+
+- E-commerce Recommendations
+- Customer Support and FAQ Systems
+- Research and Information Retrieval
+
+
+<Snippet file="installation.mdx" />
+
+```python
+API_KEY = "..."
+
+ecommerce_objects = [
+  {
+    "name": "Wireless Bluetooth Earbuds",
+    "description": "High-quality wireless earbuds with Bluetooth 5.0 technology.",
+    "price": 49.99,
+    "category": "Electronics"
+  },
+  {
+    "name": "Men's Classic Leather Watch",
+    "description": "Elegant men's watch with a genuine leather strap and quartz movement.",
+    "price": 99.99,
+    "category": "Fashion"
+  },
+  {
+    "name": "Portable Bluetooth Speaker",
+    "description": "Compact and powerful Bluetooth speaker with 20W output.",
+    "price": 79.99,
+    "category": "Electronics"
+  },
+  {
+    "name": "Women's Athletic Shoes",
+    "description": "Comfortable and stylish athletic shoes for women.",
+    "price": 69.99,
+    "category": "Fashion"
+  },
+  {
+    "name": "Smart HD TV",
+    "description": "High-definition smart TV with built-in streaming apps.",
+    "price": 499.99,
+    "category": "Electronics"
+  },
+]
+
+import requests
+response = requests.get(
+    url="https://api.twilix.io/v1/object/count",
+    headers={"Authorization": "Bearer " + API_KEY},
+    params={
+        "text": "gifts for girls",
+        "collection": "eCommerce",
+    }
+)
+response.json()
+# You can see 20 objects in a collection
+{'count': 20}
+
+response = requests.post(
+    url="https://api.twilix.io/v1/search",
+    headers={"Authorization": "Bearer " + api_key},
+    json={
+        "text": "gifts for girls",
+        "collection": "eCommerce",
+        "fields": ["name"]
+    }
+)
+response.json()
+# Example search results:
+# {'success': True,
+#  'result': [{'name': "Women's Leather Handbag"},
+#   {'name': "Women's Winter Jacket"},
+#   {'name': "Women's Designer Sunglasses"},
+#   {'name': "Women's Casual Sneakers"},
+#   {'name': "Women's Athletic Shoes"}]}
+
+response = requests.post(
+    url="https://api.twilix.io/v1/search",
+    headers={"Authorization": "Bearer " + api_key},
+    json={
+        "text": "gifts for boys",
+        "collection": "eCommerce",
+        "fields": ["name"]
+    }
+)
+response.json()
+# Example search results:
+# {'success': True,
+#  'result': [{'name': "Men's Sports Shorts"},
+#   {'name': "Men's Classic Leather Watch"},
+#   {'name': "Men's Dress Shirt"},
+#   {'name': 'Wireless Bluetooth Earbuds'},
+#   {'name': "Men's Leather Wallet"}]}
+
+```
