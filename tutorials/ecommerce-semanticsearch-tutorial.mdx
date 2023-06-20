@@ -58,7 +58,7 @@ ecommerce_objects = [
 
 import requests
 response = requests.get(
-    url="https://api.twilix.io/v1/object/count",
+    url="https://app.twilix.io/v1/object/count",
     headers={"Authorization": "Bearer " + API_KEY},
     params={
         "text": "gifts for girls",
@@ -70,7 +70,7 @@ response.json()
 {'count': 20}
 
 response = requests.post(
-    url="https://api.twilix.io/v1/search",
+    url="https://app.twilix.io/v1/search",
     headers={"Authorization": "Bearer " + api_key},
     json={
         "text": "gifts for girls",
@@ -88,7 +88,7 @@ response.json()
 #   {'name': "Women's Athletic Shoes"}]}
 
 response = requests.post(
-    url="https://api.twilix.io/v1/search",
+    url="https://app.twilix.io/v1/search",
     headers={"Authorization": "Bearer " + api_key},
     json={
         "text": "gifts for boys",

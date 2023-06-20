@@ -9,14 +9,14 @@
     "auth": {
       "method": "bearer"
     },
-    "baseUrl": "http://api.twilix.io"
+    "baseUrl": "http://app.twilix.io"
   },
   "name": "Twilix Introduction",
   "logo": {
     "dark": "/logo/bowtie.svg",
     "light": "/logo/bowtie-black.svg"
   },
-  "openapi": "https://api.twilix.io/openapi.json",
+  "openapi": "https://app.twilix.io/openapi.json",
   "favicon": "/logo/bowtie.svg",
   "colors": {
     "primary": "#0069ED",

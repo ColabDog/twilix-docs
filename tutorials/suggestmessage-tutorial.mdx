@@ -33,7 +33,7 @@ const emailObject2 = {
   attachments: ["www.s3.objects.com/GET"],
 };
 const bulkInsertResponse = await fetch(
-  "https://api.twilix.io/v1/collection/bulk-insert",
+  "https://app.twilix.io/v1/collection/bulk-insert",
   {
     method: "POST",
     headers: {
@@ -59,7 +59,7 @@ const bulkInsertResponse = await fetch(
   });
 
 const response = await fetch(
-  "https://api.twilix.io/v1/collection/suggest-message",
+  "https://app.twilix.io/v1/collection/suggest-message",
   {
     method: "POST",
     headers: {

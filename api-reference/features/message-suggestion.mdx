@@ -1,6 +1,6 @@
 ---
 title: Message Suggestion
-api: "POST https://api.twilix.io/v1/collection/suggest-message"
+api: "POST https://app.twilix.io/v1/collection/suggest-message"
 ---
 
 This endpoint allows you to suggest a message based on data (eg. email thread, chat conversations, or even user data like a LinkedIn profile). You can provide both external data and/or use data in your vectorstore to suggest a message based on your custom prompt.
@@ -62,7 +62,7 @@ let data = {
 
 // send the request to suggest a message
 axios({
-    url: "https://api.twilix.io/v1/collection/suggestMessage",
+    url: "https://app.twilix.io/v1/collection/suggestMessage",
     method: "POST",
     headers: {
         "Content-Type": "application/json",
