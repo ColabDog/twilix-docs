@@ -1,5 +1,18 @@
 <ParamField body="objects" type="array" default="[]">
   An array of JSON objects
+  ```
+  [
+      {"message": "Hi James!", "sender": "Bill"},
+      {"message": "Hello!", "sender": "James"}
+  ]
+  ```
+  <Note>
+    If you are attaching an `id` to your object, 
+    it is required to be a UUID, otherwise
+    it will error. If you need the `id` field to be 
+    stored as something else, it needs to be stored as something
+    else like `_id` or `$id`.
+  </Note>
   <Expandable title="Object">
     <ParamField type="object" key="any">
       What type of object is it
