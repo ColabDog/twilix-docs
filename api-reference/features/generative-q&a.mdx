@@ -13,7 +13,7 @@ You can run Generative QA on your application using Twilix.
 <ParamField body="userInput" type="string" required>
   The message from the user
 </ParamField>
-<ParamField body="fields" type="array" required>
+<ParamField body="answerFields" type="array" required>
   The fields that you want the retrieval to be based on.
 </ParamField>
 <ParamField body="conversationID" type="string">
@@ -36,7 +36,7 @@ const axios = require('axios');
 let data = {
     collection: `insurancePdfs',
     userInputt: "Can I claim wear and tear?",
-    fields: ['content', 'url', 'pageNumber'],
+    answerFields: ['content', 'url', 'pageNumber'],
 };
 
 
@@ -44,7 +44,7 @@ var conversationID;
 
 // send the request to extract data
 axios({
-    url: "https://app.twilix.io/v1/generativeQA",
+    url: "https://app.twilix.io/api/v1/generative-qa",
     method: "POST",
     headers: {
         "Content-Type": "application/json",
