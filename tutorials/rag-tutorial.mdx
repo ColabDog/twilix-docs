@@ -18,6 +18,8 @@ What this tutorial will cover:
 
 <Snippet file="installation.mdx" />
 
+<Snippet file="installation-python.mdx" />
+
 ## Inserting Data 
 
 ### Inserting objects
@@ -25,7 +27,7 @@ What this tutorial will cover:
 ```python
 from blitzchain import Client
 client = Client("<YOUR_API_KEY>")
-collection = client.Collection("sampleCollection)
+collection = client.Collection("sampleCollection")
 
 handbook_examples = [
     {
@@ -88,7 +90,8 @@ You can ask a simple question in just 1 line of code:
 
 ```python
 collection.generative_qa(
-    user_input="What is this about?"
+    user_input="What is this about?",
+    answer_fields=["section", "content"]
 )
 ```
 
@@ -101,6 +104,7 @@ Twilix manages storage of these conversations for users.
 ```python
 collection.generative_qa(
     user_input="What is this about?",
-    conversation_id="sampleConversation"
+    conversation_id="sampleConversation",
+    answer_fields=["section", "content"]
 )
 ```

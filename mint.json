@@ -42,10 +42,9 @@
     {
       "group": "AI Services",
       "pages": [
-        "api-reference/features/data-extraction",
-        "api-reference/features/message-suggestion",
-        "api-reference/features/summarization",
         "api-reference/features/generative-q&a",
+        "api-reference/features/data-extraction",
+        "api-reference/features/summarization",
         "api-reference/features/semantic-search",
         "api-reference/features/collection-summarization"
       ]
