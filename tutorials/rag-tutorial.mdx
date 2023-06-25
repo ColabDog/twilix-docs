@@ -1,0 +1,106 @@
+---
+title: Build Industry-Specific Retrieval-Augmented Generation
+description: "A tutorial showing how you can use Twilix for Retrieval-Augmented Generation"
+---
+
+You can easily integrate LangChain with Twilix to get better results for RAG applications.
+
+This tutorial will show you how in Python! Let's get started!
+
+What this tutorial will cover:
+
+- How can you insert data for RAG (retrieval-augmented generation)
+- Answer questions in just 1 line of code
+
+
+
+## Installation
+
+<Snippet file="installation.mdx" />
+
+## Inserting Data 
+
+### Inserting objects
+
+```python
+from blitzchain import Client
+client = Client("<YOUR_API_KEY>")
+collection = client.Collection("sampleCollection)
+
+handbook_examples = [
+    {
+        "section": "Introduction",
+        "content": "Welcome to ABC Corporation! This employee handbook provides you with important information about our company policies and procedures."
+    },
+    {
+        "section": "Employment",
+        "content": "At ABC Corporation, we believe in equal opportunity employment. We hire based on qualifications, skills, and experience, without discrimination on the basis of race, gender, religion, or any other protected status."
+    },
+    {
+        "section": "Code of Conduct",
+        "content": "We expect all employees to conduct themselves professionally and ethically at all times. Treat colleagues, customers, and partners with respect and courtesy."
+    },
+    {
+        "section": "Work Hours",
+        "content": "Our regular work hours are from 9:00 AM to 5:00 PM, Monday to Friday. Be punctual and adhere to your assigned schedule. Notify your supervisor in advance for any planned time off."
+    },
+    {
+        "section": "Dress Code",
+        "content": "We maintain a business casual dress code. Dress appropriately for your role, maintaining a clean and professional appearance."
+    },
+    {
+        "section": "Confidentiality",
+        "content": "As an employee of ABC Corporation, you may come across confidential information. Safeguard and maintain the confidentiality of such information, both during and after your employment."
+    },
+    {
+        "section": "Performance Reviews",
+        "content": "We conduct regular performance reviews to provide feedback and evaluate your work. This process helps identify areas of improvement and recognize outstanding performance."
+    },
+    {
+        "section": "Leave and Time Off",
+        "content": "We offer various types of leave, including vacation, sick leave, and parental leave. Familiarize yourself with the procedures and guidelines outlined in our leave policy."
+    },
+    {
+        "section": "Technology Usage",
+        "content": "Use company-provided technology resources responsibly and solely for work-related purposes. Follow our IT policies and guidelines to ensure the security and integrity of our systems."
+    },
+    {
+        "section": "Termination",
+        "content": "In the event of termination, return all company property and ensure a smooth transition of responsibilities. Follow the procedures outlined in our termination policy."
+    }
+]
+
+collection.insert_objects(handbook_examples)
+
+```
+
+### Inserting PDF
+
+```python
+collection.insert_pdf(
+    "https://www.founders.unsw.edu.au/sites/default/files/documents/PFC%20terms%20and%20conditions_updated_2022.pdf"
+)
+```
+
+## Asking Questions
+
+You can ask a simple question in just 1 line of code:
+
+```python
+collection.generative_qa(
+    user_input="What is this about?"
+)
+```
+
+### Moving into conversations
+
+If you want conversations, simply supply it a specific 
+conversation ID which can then be referenced later on.
+Twilix manages storage of these conversations for users.
+
+```python
+collection.generative_qa(
+    user_input="What is this about?",
+    conversation_id="sampleConversation"
+)
+```
