@@ -66,9 +66,9 @@
     {
       "group": "Tutorials",
       "pages": [
+        "tutorials/rag-tutorial",
         "tutorials/suggestmessage-tutorial", 
-        "tutorials/ecommerce-semanticsearch-tutorial",
-        "tutorials/rag-tutorial"
+        "tutorials/ecommerce-semanticsearch-tutorial"
       ]
     },
     {
