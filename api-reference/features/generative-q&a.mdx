@@ -14,7 +14,10 @@ You can run Generative QA on your application using Twilix.
   The message from the user
 </ParamField>
 <ParamField body="answerFields" type="array" required>
-  The fields that you want the retrieval to be based on.
+  The fields that you want the generation to be based on.
+</ParamField>
+<ParamField body="fields" type="array">
+  The fields that you want to get with the retrieval. If not specified, it retrieves all fields.
 </ParamField>
 <ParamField body="conversationID" type="string">
   The conversation ID. This is returned in the response so you can use the one
