@@ -1,0 +1,37 @@
+---
+title: Inserting a CSV
+description: "A tutorial on how to insert a CSV with Twilix"
+---
+
+<Snippet file="installation.mdx"/>
+<Snippet file="installation-python.mdx"/>
+
+After you have installed, you can insert a CSV running
+the following: 
+
+```python
+import csv
+import json
+
+def csv_to_json(csv_file):
+    # Read the CSV file
+    with open(csv_file, 'r') as file:
+        csv_data = csv.DictReader(file)
+        # Convert CSV data into a list of dictionaries
+        data = [row for row in csv_data]
+
+    # Return the JSON data
+    return json.dumps(data)
+
+csv_file = 'input.csv'
+
+# Convert CSV to JSON
+json_data = csv_to_json(csv_file)
+
+from blitzchain import Client 
+client = Client("<YOUR_API_KEY")
+collection = client.Collection("csvSample")
+collection.insert_objects(json_data)
+```
+
+
