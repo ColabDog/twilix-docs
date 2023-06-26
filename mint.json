@@ -57,6 +57,7 @@
         "api-reference/endpoint/schema",
         "api-reference/endpoint/bulkInsert",
         "api-reference/endpoint/insertPdf",
+        "data/insert-csv",
         "api-reference/endpoint/deleteCollection",
         "api-reference/endpoint/deleteObject",
         "api-reference/endpoint/countCollection",
