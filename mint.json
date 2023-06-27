@@ -40,12 +40,15 @@
       "pages": ["introduction/getting-started", "introduction/terminologies", "introduction/concepts"]
     },
     {
+      "group": "Tutorials",
+      "pages": [
+        "tutorials/rag-tutorial"
+      ]
+    },
+    {
       "group": "AI Services",
       "pages": [
         "api-reference/features/generative-q&a",
-        "api-reference/features/data-extraction",
-        "api-reference/features/summarization",
-        "api-reference/features/semantic-search",
         "api-reference/features/collection-summarization"
       ]
     },
@@ -62,14 +65,6 @@
         "api-reference/endpoint/deleteObject",
         "api-reference/endpoint/countCollection",
         "api-reference/endpoint/listObjects"
-      ]
-    },
-    {
-      "group": "Tutorials",
-      "pages": [
-        "tutorials/rag-tutorial",
-        "tutorials/suggestmessage-tutorial", 
-        "tutorials/ecommerce-semanticsearch-tutorial"
       ]
     },
     {
