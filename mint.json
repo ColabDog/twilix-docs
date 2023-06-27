@@ -16,7 +16,6 @@
     "dark": "/logo/bowtie.svg",
     "light": "/logo/bowtie-black.svg"
   },
-  "openapi": "https://app.twilix.io/openapi.json",
   "favicon": "/logo/bowtie.svg",
   "colors": {
     "primary": "#0069ED",
@@ -63,6 +62,7 @@
         "data/insert-csv",
         "api-reference/endpoint/deleteCollection",
         "api-reference/endpoint/deleteObject",
+        "api-reference/endpoint/createCollection",
         "api-reference/endpoint/countCollection",
         "api-reference/endpoint/listObjects"
       ]
