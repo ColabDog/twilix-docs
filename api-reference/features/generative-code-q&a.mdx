@@ -1,0 +1,85 @@
+---
+title: Generate Code CoPilot
+api: "POST https://app.twilix.io/api/v1/collection/generative-code-qa"
+description: "Generative question-answering for code on your collection."
+---
+
+You can run Generative Code CoPilot on your application using Twilix. This endpoint
+has **coding** functionality on top of the normal generative code-qa. 
+This endpoint is useful if you are looking to provide a coding interface on top of your 
+documentation but is a more expensive endpoint.
+
+<ParamField body="collection" type="string" required>
+  The collection you want
+</ParamField>
+
+<ParamField body="userInput" type="string" required>
+  The message from the user
+</ParamField>
+<ParamField body="answerFields" type="array" required>
+  The fields that you want the generation to be based on.
+</ParamField>
+<ParamField body="fields" type="array">
+  The fields that you want to get with the retrieval. If not specified, it retrieves all fields.
+</ParamField>
+<ParamField body="conversationID" type="string">
+  The conversation ID. This is returned in the response so you can use the one
+  that has been automatically generated for you or you can also supply your own
+  to keep track of the conversation on your side.
+</ParamField>
+<ParamField body="includeRerank" type="boolean">
+  if True, it includes a reranking to improve accuracy of retrievals. It will
+  also return a `relevanceScore`.
+</ParamField>
+<ParamField body="minimumRerankScore" type="float">
+  The minimum rerank score.
+</ParamField>
+<Snippet file="param-limit.mdx" />
+<Snippet file="header-application-type.mdx" />
+
+# Example
+```typescript generative-qa.ts
+
+// we're going to be using axios to send the HTTP request
+const axios = require('axios');
+
+
+// define the request body data by specifying the text to extract data from,
+// and the data you want to extra
+let data = {
+    collection: `insurancePdfs',
+    userInputt: "Can I claim wear and tear?",
+    answerFields: ['content', 'url', 'pageNumber'],
+};
+
+
+var conversationID;
+
+// send the request to extract data
+axios({
+    url: "https://app.twilix.io/api/v1/generative-qa",
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + apiKey,
+    },
+    data: data
+}).then(response => {
+    console.log(response.data);
+
+    // set the conversationID and supply it for next API call
+    conversationID = response.data.conversationID
+}).catch(error => {
+    console.error(error);
+});
+
+// output:
+// {
+//  "content": "No, you cannot claim wear and tear on insurance. 
+//              Wear and tear is considered normal deterioration 
+//              due to age and use, and is not covered by insurance."
+//  "url": "...",
+//  "pageNumber": 6
+// }
+
+```
