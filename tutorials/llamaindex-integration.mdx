@@ -1,0 +1,107 @@
+---
+title: Integrate with LlamaIndex in 2 minutes
+description: "A tutorial showing how to integrate with LlamaIndex"
+---
+
+What this tutorial will cover:
+
+- How can you use LlamaIndex's connectors to get data.
+- How you can then store/retrieve data in Twilix to then generate answers
+
+## Installation
+
+<Snippet file="installation.mdx" />
+
+<Snippet file="installation-python.mdx" />
+
+## Using LlamaIndex's Loaders
+
+Before starting, make sure you install Llama Index using the pip install below.
+
+```bash
+pip install -q llama-index
+```
+
+You can then get any loader from LlamaIndex. Here is an example:
+
+```python
+from llama_index import download_loader
+
+YoutubeTranscriptReader = download_loader("YoutubeTranscriptReader")
+
+loader = YoutubeTranscriptReader()
+documents = loader.load_data(ytlinks=['https://www.youtube.com/watch?v=-hxeDjAxvJ8'])
+```
+
+Once you have retrieved the documents, you will want to insert them into Twilix. To
+help with this, we built out our Python package which we called `BlitzChain`.
+
+## Instantiating Twilix
+
+All API requests requires an API key. To get your API key, sign up for free at https://app.twilix.io.
+
+```python
+from blitzchain import Client
+TWILIX_API_KEY = "..."
+client = Client(TWILIX_API_KEY)
+collection = client.Collection("marcAndreessenInterviewDemo")
+```
+
+### Pre-processing
+
+Now we do some light preprocessing:
+
+```python
+docs = [d.dict() for d in documents]
+# Convert everything to a string
+for d in docs:
+  for k, v in d.items():
+    d[k] = str(v)
+```
+
+
+## Inserting into Twilix
+
+As part of this process, we now want to focus on building out
+
+```python
+result = collection.insert_objects(
+  objects=docs,
+  # Here you can specify you only want to split on the text field
+  split_on_field='text',
+  # Here, you can specify that you ONLY want to vectorize the text field
+  fields_for_vectorization=['text'],
+)
+print(result)
+```
+
+### Check using count 
+
+You can then run a count of the documents to check they have been inserted properly.
+Below, we can see what happened.
+
+```python
+# You can check the count of the documents here
+collection.count()
+```
+
+## Run question-answering
+
+Now you can run question answering.
+
+```python
+collection.generative_qa(
+    # Ask it any query
+    user_input="Summarize this please",
+    # Use your answer field
+    answer_fields=['text'],
+)
+```
+
+If you are interested in further tweaking this, we recommend checking out 
+
+<Card title="Customize Generative QA" icon="link" href="/api-reference/features/generative-q&a">
+    You can read more about this endpoint and how you can integrate this into 
+    a variety of clients such as JS, Go, etc. and how you can test different 
+    things out such as re-ranking and fields.
+</Card>

@@ -41,7 +41,8 @@
     {
       "group": "Tutorials",
       "pages": [
-        "tutorials/rag-tutorial"
+        "tutorials/rag-tutorial",
+        "tutorials/llamaindex-integration"
       ]
     },
     {
