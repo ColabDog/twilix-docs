@@ -49,7 +49,8 @@ collection = client.Collection("marcAndreessenInterviewDemo")
 
 ### Pre-processing
 
-Now we do some light preprocessing:
+We convert everything to a string to avoid any potential inconsistent data
+structure issues.
 
 ```python
 docs = [d.dict() for d in documents]
@@ -61,8 +62,6 @@ for d in docs:
 
 
 ## Inserting into Twilix
-
-As part of this process, we now want to focus on building out
 
 ```python
 result = collection.insert_objects(
@@ -87,7 +86,7 @@ collection.count()
 
 ## Run question-answering
 
-Now you can run question answering.
+Running question-answering now is as simple as 1 line of code:
 
 ```python
 collection.generative_qa(
