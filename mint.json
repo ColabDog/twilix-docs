@@ -49,8 +49,8 @@
       "group": "AI Services",
       "pages": [
         "api-reference/features/generative-q&a",
-        "api-reference/features/collection-summarization",
-        "api-reference/features/generative-code-q&a"
+        "api-reference/features/copilot",
+        "api-reference/features/collection-summarization"
       ]
     },
     {
