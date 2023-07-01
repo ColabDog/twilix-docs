@@ -1,0 +1,47 @@
+---
+title: How to moderate user input and generated output
+description: "An explanation of content moderation and how to use it in Twilix"
+---
+
+## What is content moderation?
+
+Content moderation is the process of monitoring and regulating user-generated content on digital platforms. Developers implement moderation tools and systems, design user reporting mechanisms, and ensure scalability. They need to understand platform policies, handle user appeals, and continuously update and improve the moderation system while considering ethical concerns. The goal is to create a safe and inclusive online environment.
+
+## How does Twilix implement this?
+
+Content moderation is done in 2 layers:
+
+- User input layer - when a user types in a query to send to Twilix, a moderation layer is built in to make sure that the input does not incite violence/hate speech.
+- AI output layer - when the AI returns an output, a moderation layer is buit in to make sure that the output does not include violence/hate speech.
+
+![Content Moderation](/images/content-moderation.png)
+
+A few things to note before setting `includeModeration` to `true`:
+- Turning content moderation on will increase latency of requests. This means if you are turning it on, then it won't work well.
+- Content Moderation is currently in beta mode and as with any ML classifier model - is being finetuned currently to improve performance
+
+
+## Turning it on
+
+In order to turn it on, simply set `includeModeration` to `true`.
+
+## Example 
+
+In this example, you want to also compare the content moderation from an input and output perspective.
+
+![Content Moderation Comparison](/images/content-moderation-comparison.png)
+
+You can switch these on in the following endpoints:
+
+<CardGroup cols={2}>
+    <Card title="Turn on content moderation for Generative QA" icon="link" href="/api-reference/features/generative-q&a">
+        You can read more about this generative QA and how you can integrate this into 
+        a variety of clients such as JS, Go, etc. and how you can build applications such as 
+        document question answering and document extraction.
+    </Card>
+    <Card title="Turn on content moderation for Copilot" icon="link" href="/api-reference/features/copilot">
+        You can read more about this Copilot endpoint and how you can integrate this into 
+        a variety of clients such as JS, Go, etc. and how you can build applications such as
+        coding co-pilots and advanced reasoning tasks powered by GPT-4.
+    </Card>
+</CardGroup>

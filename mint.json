@@ -42,7 +42,8 @@
       "group": "Tutorials",
       "pages": [
         "tutorials/rag-tutorial",
-        "tutorials/llamaindex-integration"
+        "tutorials/llamaindex-integration",
+        "tutorials/content-moderation"
       ]
     },
     {
@@ -50,7 +51,7 @@
       "pages": [
         "api-reference/features/generative-q&a",
         "api-reference/features/copilot",
-        "api-reference/features/collection-summarization"
+        "features/collection-summarization"
       ]
     },
     {
