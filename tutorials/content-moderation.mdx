@@ -16,16 +16,22 @@ Content moderation is done in 2 layers:
 
 ![Content Moderation](/images/content-moderation.png)
 
-For users - before flicking this on as `true` in production, here are 
-a few things to note: 
+A few things to note before setting `includeModeration` to `true`:
 - Turning content moderation on will increase latency of requests. This means if you are turning it on, then it won't work well.
 - Content Moderation is currently in beta mode and as with any ML classifier model - is being finetuned currently to improve performance
 
+
 ## Turning it on
 
-In order to turn it on, one only needs to set `includeModeration` to `true`.
+In order to turn it on, simply set `includeModeration` to `true`.
 
-You can easily turn in the parameters found in 
+## Example 
+
+In this example, you want to also compare the content moderation from an input and output perspective.
+
+![Content Moderation Comparison](/images/content-moderation-comparison.png)
+
+You can switch these on in the following endpoints:
 
 <CardGroup cols={2}>
     <Card title="Turn on content moderation for Generative QA" icon="link" href="/api-reference/features/generative-q&a">
