@@ -43,6 +43,7 @@
       "pages": [
         "tutorials/rag-tutorial",
         "tutorials/llamaindex-integration",
+        "tutorials/github-integration",
         "tutorials/content-moderation"
       ]
     },
