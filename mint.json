@@ -53,7 +53,7 @@
       ]
     },
     {
-      "group": "AI Services",
+      "group": "Features",
       "pages": [
         "api-reference/features/generative-qa",
         "api-reference/features/copilot",
