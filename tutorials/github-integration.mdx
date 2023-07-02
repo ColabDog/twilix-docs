@@ -1,0 +1,165 @@
+---
+title: Integrate Jupyter Notebook Documentation with Twilix and LangChain
+description: "A tutorial showing how to integrate with Jupyter Notebook documentation with Twilix"
+---
+
+What this tutorial will cover:
+
+- How you can use Langchain's loaders to insert into Twilix
+- How you can convert JUpyter Notebooks into Twilix
+- Demonstrate how we built Microsoft's Guidance in just a few lines of code!
+
+In addition, we open-source our Jupyter Notebook splitting strategy in
+this tutorial to help others who are also looking to find better
+ways to index these notebooks.
+
+## Installation
+
+```
+pip install -q langchain
+pip install -q GitPython
+```
+
+## Set-up 
+### Cloning a repository
+
+Download any open-source github repository using the code below.
+
+```python
+from git import Repo
+repo = Repo.clone_from(
+    "https://github.com/microsoft/guidance", to_path="./guidance"
+)
+branch = repo.head.reference
+```
+
+### Using LangChain's Loaders
+Now, we want to use LangChain's loaders.
+
+```python
+from langchain.document_loaders import GitLoader
+loader = GitLoader(repo_path="./guidance", branch=branch)
+data = loader.load()
+```
+
+### Processing for Jupyter Notebooks
+
+These loaders will be used to create and store examples. 
+
+```python
+nb_examples = [
+    x for x in data if 'pynb' in x.metadata['file_path']
+]
+file_paths = [nb.metadata['file_path'] for nb in nb_examples]
+```
+
+Once you load in the notebooks, you can then convert them into strings
+```python
+# Parse in string appropriately depending on their type
+def get_cell_string(cell: dict):
+  content = ""
+  
+  if cell['cell_type'] == 'markdown':
+    content += cell['source']
+  elif cell['cell_type'] == 'code':
+    content += f"""```python
+{cell['source']}
+"""
+  return content
+```
+
+You can then insert Jupyter Notebooks
+
+```python
+from nbformat import read
+from tqdm.auto import tqdm
+docs = []
+for notebook_path in tqdm(file_paths):
+  with open('guidance/' + notebook_path, 'r') as f:
+      notebook = read(f, as_version=4)
+
+  cells = notebook['cells']
+
+  # For each cell, we include the before and after markdown and code
+  all_content = []
+  for i, cell in enumerate(cells):
+    content = get_cell_string(cell)
+    all_content.append(
+        {
+            "content": content
+        }
+    )
+
+
+  # For each code block include previous and enxt content cell
+  # below are an example indices
+  # [[0, 2], [1, 3], [2, 4], [3, 5], [4, 6], [5, 7], [6, 8]]
+  # Ignore the terrible code 
+  content_clean = ["\n".join([c['content'] for c in all_content[(i-1):(i + 1)]])for i in range(1, len(all_content))]
+  docs += [{"content": c, "file_path": notebook_path} for c in content_clean]
+
+# You can then quickly check how many them there are 
+len(docs)
+# 432
+```
+
+# Inserting into Twilix
+
+<Snippet file="installation.mdx" />
+<Snippet file="installation-python.mdx" />
+
+```python
+from blitzchain import Client
+TWILIX_API_KEY = "..."
+client = Client(TWILIX_API_KEY)
+collection = client.Collection("microsoftGuidanceDemo")
+```
+
+### Quick sense check
+
+You can do a sense check of the number of objects in a collection.
+
+```python
+collection.count()
+```
+
+## Generative Question Answering
+
+Ask Microsoft Guidance simple questions and have it return to you useful answers.
+
+```python
+# Ask Microsoft Guidance questions about their docs
+collection.generative_qa(
+    # Ask it any query
+    user_input="What is Anachronism?",
+    # Use your answer field
+    answer_fields=['content']
+)
+```
+
+You can find out more about generative question-answering from:
+
+<Card
+    title="Generative Question Answering"
+    icon="pen-to-square"
+    href="../api-reference/features/generative-q&a"
+>Explore more about generative question-answering and other features like content-moderation.</Card>
+
+## Co-Pilot
+
+Ask Microsoft Guidance to help you write code to integrate into your application
+
+```python
+collection.copilot(
+    # Ask it any query
+    user_input="What is token healing?",
+    # Use your answer field
+    answer_fields=['content']
+)
+```
+
+<Card
+    title="CoPilot"
+    icon="pen-to-square"
+    href="../api-reference/features/copilot"
+>Explore more about co-pilot and other features including content moderation.</Card>
