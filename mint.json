@@ -36,7 +36,12 @@
   "navigation": [
     {
       "group": "Introduction",
-      "pages": ["introduction/getting-started", "introduction/terminologies", "introduction/concepts"]
+      "pages": [
+        "introduction/getting-started", 
+        "introduction/terminologies", 
+        "introduction/concepts",
+        "introduction/what-is-rag"
+    ]
     },
     {
       "group": "Tutorials",
