@@ -57,8 +57,15 @@
       "group": "Features",
       "pages": [
         "api-reference/features/generative-qa",
-        "api-reference/features/copilot",
-        "features/collection-summarization"
+        "api-reference/features/copilot"
+      ]
+    },
+    {
+      "group": "Ingest Data",
+      "pages": [
+        "api-reference/endpoint/insertPdf",
+        "data/insert-csv",
+        "api-reference/endpoint/bulkInsert"
       ]
     },
     {
@@ -68,8 +75,6 @@
         "data/where-filters",
         "api-reference/endpoint/schema",
         "api-reference/endpoint/bulkInsert",
-        "api-reference/endpoint/insertPdf",
-        "data/insert-csv",
         "api-reference/endpoint/deleteCollection",
         "api-reference/endpoint/deleteObject",
         "api-reference/endpoint/createCollection",
