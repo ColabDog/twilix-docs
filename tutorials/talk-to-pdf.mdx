@@ -30,6 +30,11 @@ elements = partition_pdf("example-docs/layout-parser-paper-fast.pdf")
 # if the text is not available in the PDF.
 elements = partition_pdf("example-docs/layout-parser-paper-fast.pdf", ocr_languages="eng+swe")
 objects = convert_to_dict(elements)
+# Convert everything into a string to make sure it can be indexed properly
+for o in objects:
+    for k, v in o.items():
+        o[k] = str(v)
+
 ```
 
 ### Ingesting into Twilix
