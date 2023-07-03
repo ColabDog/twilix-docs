@@ -49,7 +49,8 @@
         "tutorials/rag-tutorial",
         "tutorials/llamaindex-integration",
         "tutorials/github-integration",
-        "tutorials/content-moderation"
+        "tutorials/content-moderation",
+        "tutorials/talk-to-pdf"
       ]
     },
     {

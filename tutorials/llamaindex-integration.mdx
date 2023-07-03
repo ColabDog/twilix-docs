@@ -104,3 +104,27 @@ If you are interested in further tweaking this, we recommend checking out
     a variety of clients such as JS, Go, etc. and how you can test different 
     things out such as re-ranking and fields.
 </Card>
+
+## Create a copilot
+
+You can build a copilot to do more complex things based on your data such as integrating
+with your product to do advanced reasoning tasks or analysis.
+
+```python
+collection.copilot(
+    # Ask it any query
+    user_input="Summarize this please",
+    # Use your answer field
+    answer_fields=['text'],
+)
+```
+
+If you are interested in further tweaking this, we recommend checking out 
+
+<Card title="Copilot" icon="link" href="/api-reference/features/copilot">
+    Read more about this endpoint and how you can integrate this into 
+    a variety of clients such as JS, Go, etc. and how you can test different 
+    things out such as re-ranking and fields.
+</Card>
+
+<Snippet file="discord.mdx"/>
