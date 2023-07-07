@@ -11,12 +11,22 @@ Insert HTML contents into your collection. This endpoint handles:
 
 <Snippet file="param-collection.mdx" />
 
-<ParamField body="html" type="string">
+<ParamField body="html">
   Insert a HTML into a collection.
 </ParamField>
 
-<ParamField body="metadata" type="object">
+<ParamField body="metadata" type="object" default="{}">
   Metadata might be useful when inserting the HTML
+
+<Note>
+  Note that this requires an object so the Mintlify playground won't work with a given metadata as it only accepts strings. For example, an example metadata would be:
+  ```
+  {
+    "name": 'James.html',
+    "url": 'https://www.google.com'
+  }
+  ```
+</Note>
 </ParamField>
 
 <Note>
