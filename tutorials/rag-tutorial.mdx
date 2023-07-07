@@ -91,7 +91,7 @@ You can ask a simple question in just 1 line of code:
 ```python
 collection.generative_qa(
     user_input="What is this about?",
-    answer_fields=["section", "content"]
+    prompt_fields=["section", "content"]
 )
 ```
 
@@ -105,6 +105,6 @@ Twilix manages storage of these conversations for users.
 collection.generative_qa(
     user_input="What is this about?",
     conversation_id="sampleConversation",
-    answer_fields=["section", "content"]
+    prompt_fields=["section", "content"]
 )
 ```

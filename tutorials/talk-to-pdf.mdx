@@ -80,7 +80,7 @@ You can then ask it generative QA questions using the Twilix
 ```python
 collection.generative_qa(
     user_input="Summarize this",
-    answer_fields=["content"]
+    prompt_fields=["content"]
 )
 ```
 
@@ -93,7 +93,7 @@ from uuid import uuid4
 conversation_id = str(uuid4())
 collection.generative_qa(
     user_input="What is this?",
-    answer_fields=["content"],
+    prompt_fields=["content"],
     conversation_id=conversation_id
 )
 
@@ -111,7 +111,7 @@ collection.copilot(
     # Ask it any query
     user_input="How do I use this with LangChain?",
     # Use your answer field
-    answer_fields=['content'],
+    prompt_fields=['content'],
 )
 ```
 
