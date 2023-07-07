@@ -57,8 +57,7 @@
       "group": "Features",
       "pages": [
         "api-reference/features/generative-qa",
-        "api-reference/features/copilot",
-        "api-reference/endpoint/insertHtml"
+        "api-reference/features/copilot"
       ]
     },
     {
@@ -66,6 +65,7 @@
       "pages": [
         "api-reference/endpoint/insertPdf",
         "data/insert-csv",
+        "api-reference/endpoint/insertHtml",
         "api-reference/endpoint/bulkInsert"
       ]
     },
