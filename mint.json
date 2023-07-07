@@ -57,7 +57,8 @@
       "group": "Features",
       "pages": [
         "api-reference/features/generative-qa",
-        "api-reference/features/copilot"
+        "api-reference/features/copilot",
+        "api-reference/endpoint/insertHtml"
       ]
     },
     {
