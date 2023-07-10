@@ -1,0 +1,42 @@
+```typescript Example.ts
+const requestBody = {
+  collection: "insurancePdfs",
+  userInputt: "Can I claim wear and tear?",
+  promptFields: ["content", "url", "pageNumber"],
+  stream: true, // <------- IMPORTANT
+}; // Define your request body
+
+const options = {
+  method: "POST",
+  headers: {
+    Authorization: `Bearer ${apiKey}`,
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(requestBody),
+  signal: abortSignal, // This is optional
+};
+
+await fetchEventSource(
+  `https://app.twilix.io/api/v1/collection/generative-qa`,
+  {
+    ...options,
+    onopen(response) {
+      // ...
+    },
+    onmessage: (event) => {
+      const decodedJson = JSON.parse(event.data);
+      const decodedMessage: GenerativeQnAResponse = {
+        message: decodedJson.message,
+        conversationID: decodedJson.conversationID,
+        references: decodedJson.references ?? [],
+        confidenceScore: decodedJson.confidenceScore,
+      };
+      onNewData(decodedMessage);
+    },
+    openWhenHidden: true,
+    onerror: (error) => {
+      // ...
+    },
+  }
+);
+```
