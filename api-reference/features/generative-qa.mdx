@@ -13,11 +13,12 @@ You can run Generative QA on your application using Twilix.
 <ParamField body="userInput" type="string" required>
   The message from the user
 </ParamField>
-<ParamField body="promptFields" type="array" required>
+<ParamField body="promptFields" type="array">
   The fields that you want the generation to be based on.
 </ParamField>
 <ParamField body="fields" type="array">
-  The fields that you want to get with the retrieval. If not specified, it retrieves all fields.
+  The fields that you want to get with the retrieval. If not specified, it
+  retrieves all fields.
 </ParamField>
 <ParamField body="conversationID" type="string">
   The conversation ID. This is returned in the response so you can use the one
@@ -33,4 +34,38 @@ You can run Generative QA on your application using Twilix.
 </ParamField>
 <Snippet file="param-include-moderation.mdx" />
 <Snippet file="param-limit.mdx" />
+<Snippet file="param-stream.mdx" />
 <Snippet file="header-application-type.mdx" />
+
+<Accordion title="JavaScript Streaming Example">
+  Since it could take up to a few seconds for the answer to complete. Streaming
+  is encouraged for the best user experience.
+
+You can pass in `stream=true` in the request to enable streaming response, and
+easily setup stream handling
+with Microsoft's
+[fetch-event-source](https://www.npmjs.com/package/@microsoft/fetch-event-source)
+package.
+
+{" "}
+
+<Snippet file="react-streaming-example-qna.mdx" />
+
+The event stream looks like this:
+
+{" "}
+
+<Snippet file="sample-event-stream.mdx" />
+
+</Accordion>
+
+<Accordion title="JavaScript No Streaming Example">
+If latency is not a concern, you can alternatively use the normal calling method and wait for the entire response.
+
+Note it could take up to a few seconds for the answer to complete.
+
+{" "}
+
+<Snippet file="react-normal-example-qna.mdx" />
+
+</Accordion>

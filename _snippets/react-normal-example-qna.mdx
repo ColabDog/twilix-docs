@@ -1,0 +1,33 @@
+```javaScript Example.ts
+const requestBody = {
+  collection: "insurancePdfs",
+  userInputt: "hi",
+  stream: true, // <------- IMPORTANT
+}; // Define your request body
+
+return axios
+    .post(`https://app.twilix.io/api/v1/collection/generative-qa`, requestBody, {
+        headers: {
+            Authorization: `Bearer ${apiKey}`,
+            "Content-Type": "application/json",
+        },
+    })
+    .then((res) => {
+        // Handle Response here
+        return res.data;
+    })
+    .catch((err) => {
+        // Handle Error
+    });
+```
+
+The response looks like this:
+
+```json
+{
+  "message": "Hello! How can I assist you today?",
+  "conversationID": "01f02c68-584a-42d0-bc1c-71016b127f93",
+  "references": [],
+  "confidenceScore": 1
+}
+```
