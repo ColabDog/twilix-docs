@@ -1,0 +1,16 @@
+---
+title: Question Answering vs Copilot
+---
+
+While both [Question Answering](/api-reference/features/generative-qa) and
+[CoPilot](/api-reference/features/copilot) provides responses to user questions,
+there are major differences under the hood.
+
+For `Question Answering` endpoint, the underlying language model is trained to provide the most factual answer based on the data available.
+
+If accuracy is a requirement, `Question Answering` is recommend.
+
+For `CoPilot` endpoint, the underlying model assumes that a human is actively checking the result,
+and thus is will return as much information as possible that is relevant for the response.
+
+If accuracy is not a requirement, `CoPilot` is generally recommend.

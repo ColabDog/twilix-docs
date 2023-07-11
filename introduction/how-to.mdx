@@ -1,0 +1,32 @@
+---
+title: "How to use Twilix"
+---
+
+## 1. Selecting and Ingesting Data
+
+To start using our API endpoints, you need to pass in data so we have enough context to give you customized outputs.
+Depending on the endpoint you're using, the data you pass in can either be from within your own vectorstore, or from an external data source.
+
+For example, if you want to build a chatbot using our generative QA endpoint, you need specify what collection we should use to retrieve the relevant imformation.
+
+<Tip>
+  Depending on your usecase, you might want to use your own vectorestore. We
+  support a wide range of vectorstores, please contact us for custom
+  vectorestore integration. **Using external data will not affect the quality of
+  results.**
+</Tip>
+
+To start data ingesting, use our endpoints under the `Ingest Data` section.
+
+## 2. Start using the AI services endpoints
+
+Once you have defined the data you want to use in the request body, you can now run queries on them.
+
+We offer various endpoints for communicating with your data. Take a look under `Query Data` sections for how to use each endpoint.
+
+<Tip>
+  Twilix is powered by **BlitzChain** under the hood. BlitzChain is our in-house
+  version of LangChain that is superior in accuracy, speed, and cost. You don't
+  directly interact with BlitzChain, but you can influence what it outputs by
+  defining what data to feed it in the request body.
+</Tip>

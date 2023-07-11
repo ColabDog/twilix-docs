@@ -1,0 +1,30 @@
+---
+title: "Insert Web Url"
+api: "POST https://app.twilix.io/api/v1/collection/insert-url"
+---
+
+Insert Url contents into your collection.
+
+This endpoint will automatically scrapes the web content and parse the url into html and store them in the vectorestore.
+
+Some websites have strict anti-scraping mechanisms in place. For those, we recommand using the [Insert Html](/api-reference/endpoint/insertHtml) endpoint directly.
+
+<Snippet file="param-collection-insert.mdx" />
+
+<ParamField body="url">The url link to insert.</ParamField>
+
+<ParamField body="metadata" type="object" default="{}">
+  Optional metadata when inserting the HTML
+
+<Note>
+  Note that this requires an object. For example, an example metadata would be:
+  ```
+  {
+    "name": 'my_html.html',
+    "url": 'https://www.example.com'
+  }
+  ```
+</Note>
+</ParamField>
+
+<Snippet file="header-application-type.mdx" />

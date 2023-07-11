@@ -5,16 +5,19 @@ api: "POST https://app.twilix.io/api/v1/collection/insert-pdf"
 
 Insert a PDF into your collection.
 
-<Snippet file="param-collection.mdx" />
+<Snippet file="param-collection-insert.mdx" />
 
 <ParamField body="url" type="string">
-  Insert a PDF into a collection
+  Public url of the PDF to insert.
 </ParamField>
 
 <Note>
 Note that this currently requires the URL of the pdf to be publically accessible. We do not currently support storage of the PDF. 
-We recommend using an S3-like storage with public read access. If you would like us to support public uploads, feel free to message us on
-Discord and we can provide an endpoint in the future to do so.
+We recommend using an S3-like storage with public read access.
+
+If you would like us to support public uploads, feel free to message us on
+Discord to discuss your data privacy needs.
+
 </Note>
 
 <Snippet file="header-application-type.mdx" />

@@ -3,36 +3,28 @@ title: "Insert HTML"
 api: "POST https://app.twilix.io/api/v1/collection/insert-html"
 ---
 
-Insert HTML contents into your collection. This endpoint handles:
+Insert HTML contents into your collection.
 
-- Parsing the HTML into a readable format for deep learning models 
-- Splitting up the HTML into useful components for deep learning
-- Vectorising the HTML to store inside the vector database
+This endpoint will automatically parse the html for relevant information and stores them in the vectorestore.
 
-<Snippet file="param-collection.mdx" />
+If you need to insert data via url directly, see our [Insert URL](/api-reference/endpoint/insertUrl) endpoint.
 
-<ParamField body="html">
-  Insert a HTML into a collection.
-</ParamField>
+<Snippet file="param-collection-insert.mdx" />
+
+<ParamField body="html">The raw HTML string to insert.</ParamField>
 
 <ParamField body="metadata" type="object" default="{}">
-  Metadata might be useful when inserting the HTML
+  Optional metadata when inserting the HTML
 
 <Note>
-  Note that this requires an object so the Mintlify playground won't work with a given metadata as it only accepts strings. For example, an example metadata would be:
+  Note that this requires an object. For example, an example metadata would be:
   ```
   {
-    "name": 'James.html',
-    "url": 'https://www.google.com'
+    "name": 'my_html.html',
+    "url": 'https://www.example.com'
   }
   ```
 </Note>
 </ParamField>
-
-<Note>
-Note that this currently requires the URL of the pdf to be publically accessible. We do not currently support storage of the PDF. 
-We recommend using an S3-like storage with public read access. If you would like us to support public uploads, feel free to message us on
-Discord and we can provide an endpoint in the future to do so.
-</Note>
 
 <Snippet file="header-application-type.mdx" />
