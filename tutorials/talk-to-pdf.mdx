@@ -5,7 +5,7 @@ description: "A tutorial on how to build a Chatbot on your PDF"
 
 # Building a PDF Chatbot with Twilix is simple
 
-In this tutorial, we will be using 
+In this tutorial, we will be using
 
 ## Using Unstructured
 
@@ -19,6 +19,7 @@ pip install "unstructured[local-inference]"
 ```
 
 You can then parse in a PDF simply by running the following:
+
 ```python
 from unstructured.partition.pdf import partition_pdf
 from unstructured.staging.base import convert_to_dict
@@ -39,10 +40,10 @@ for o in objects:
 
 ### Ingesting into Twilix
 
-You can then ingest into Twilix using the following: 
+You can then ingest into Twilix using the following:
 
 ```python
-# You can ingest into Twilix using the following 
+# You can ingest into Twilix using the following
 from blitzchain import Client
 client = Client("<YOUR_API_KEY>")
 collection = client.Collection("sampleCollection")
@@ -51,7 +52,7 @@ collection.insert_objects(objects)
 
 ### Using Twilix for Ingesting PDFs
 
-If you are looking for a hosted solution with more complex chunking, indexing, 
+If you are looking for a hosted solution with more complex chunking, indexing,
 formatting included solution, I highly recommend using the Insert PDF endpoint.
 
 You can integrate this with BlitzChain (our Python SDK) or explore our API docs.
@@ -66,8 +67,12 @@ collection = client.Collection("sampleCollection")
 collection.insert_pdf("pdf_url_here")
 ```
 
-<Card title="Insert PDF" icon="image" href="../api-reference/endpoint/insertPdf">
-    See how you can insert a pdf easily from this endpoint!
+<Card
+  title="Insert PDF"
+  icon="image"
+  href="../api-reference/endpoint/insertPdf"
+>
+  See how you can insert a pdf easily from this endpoint!
 </Card>
 
 If the unstructured solution does not provide great results, I recommend trying us out
@@ -86,7 +91,7 @@ collection.generative_qa(
 
 ### Conversing with PDF
 
-You can easily converse with your PDF by giving it a conversation ID. 
+You can easily converse with your PDF by giving it a conversation ID.
 
 ```python
 from uuid import uuid4
@@ -115,12 +120,15 @@ collection.copilot(
 )
 ```
 
-If you are interested in further tweaking this, we recommend checking out 
+If you are interested in further details, we recommend checking out:
 
 <Card title="Copilot" icon="link" href="/api-reference/features/copilot">
-    Read more about this endpoint and how you can integrate this into 
-    a variety of clients such as JS, Go, etc. and how you can test different 
-    things out such as re-ranking and fields.
+  Read more about this endpoint and how you can integrate this into a variety of
+  clients such as JS, Go, etc. and how you can test different things out such as
+  re-ranking and fields.
 </Card>
 
-<Snippet file="discord.mdx"/>
+<Tip>
+  For more a hands-on support, join our discord community at
+  https://discord.gg/a3K9c8GRGt
+</Tip>

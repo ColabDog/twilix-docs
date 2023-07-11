@@ -60,7 +60,6 @@ for d in docs:
     d[k] = str(v)
 ```
 
-
 ## Inserting into Twilix
 
 ```python
@@ -74,7 +73,7 @@ result = collection.insert_objects(
 print(result)
 ```
 
-### Check using count 
+### Check using count
 
 You can then run a count of the documents to check they have been inserted properly.
 Below, we can see what happened.
@@ -97,12 +96,16 @@ collection.generative_qa(
 )
 ```
 
-If you are interested in further tweaking this, we recommend checking out 
+If you are interested in further tweaking this, we recommend checking out
 
-<Card title="Customize Generative QA" icon="link" href="/api-reference/features/generative-qa">
-    You can read more about this endpoint and how you can integrate this into 
-    a variety of clients such as JS, Go, etc. and how you can test different 
-    things out such as re-ranking and fields.
+<Card
+  title="Customize Generative QA"
+  icon="link"
+  href="/api-reference/features/generative-qa"
+>
+  You can read more about this endpoint and how you can integrate this into a
+  variety of clients such as JS, Go, etc. and how you can test different things
+  out such as re-ranking and fields.
 </Card>
 
 ## Create a copilot
@@ -119,12 +122,15 @@ collection.copilot(
 )
 ```
 
-If you are interested in further tweaking this, we recommend checking out 
+If you are interested in further tweaking this, we recommend checking out
 
 <Card title="Copilot" icon="link" href="/api-reference/features/copilot">
-    Read more about this endpoint and how you can integrate this into 
-    a variety of clients such as JS, Go, etc. and how you can test different 
-    things out such as re-ranking and fields.
+  Read more about this endpoint and how you can integrate this into a variety of
+  clients such as JS, Go, etc. and how you can test different things out such as
+  re-ranking and fields.
 </Card>
 
-<Snippet file="discord.mdx"/>
+<Tip>
+  For more a hands-on support, join our discord community at
+  https://discord.gg/a3K9c8GRGt
+</Tip>
