@@ -37,11 +37,38 @@
     {
       "group": "Introduction",
       "pages": [
-        "introduction/getting-started", 
-        "introduction/terminologies", 
-        "introduction/concepts",
-        "introduction/what-is-rag"
-    ]
+        "introduction/getting-started",
+        "introduction/terminologies",
+        "introduction/how-to"
+      ]
+    },
+    {
+      "group": "Ingest Data",
+      "pages": [
+        "api-reference/endpoint/insertPdf",
+        "api-reference/endpoint/insertHtml",
+        "api-reference/endpoint/insertUrl",
+        "api-reference/endpoint/bulkInsert",
+        "data/insert-csv"
+      ]
+    },
+    {
+      "group": "Query Data",
+      "pages": [
+        "api-reference/features/generative-qa",
+        "api-reference/features/copilot",
+        "api-reference/gna-vs-copilot"
+      ]
+    },
+    {
+      "group": "Vectorstore",
+      "pages": [
+        "api-reference/endpoint/schema",
+        "api-reference/endpoint/deleteCollection",
+        "api-reference/endpoint/createCollection",
+        "api-reference/endpoint/countCollection",
+        "api-reference/endpoint/listObjects"
+      ]
     },
     {
       "group": "Tutorials",
@@ -54,43 +81,12 @@
       ]
     },
     {
-      "group": "Features",
-      "pages": [
-        "api-reference/features/generative-qa",
-        "api-reference/features/copilot"
-      ]
-    },
-    {
-      "group": "Ingest Data",
-      "pages": [
-        "api-reference/endpoint/insertPdf",
-        "data/insert-csv",
-        "api-reference/endpoint/insertHtml",
-        "api-reference/endpoint/bulkInsert"
-      ]
-    },
-    {
-      "group": "Vectorstore",
-      "pages": [
-        "data/insert-data",
-        "data/where-filters",
-        "api-reference/endpoint/schema",
-        "api-reference/endpoint/bulkInsert",
-        "api-reference/endpoint/deleteCollection",
-        "api-reference/endpoint/deleteObject",
-        "api-reference/endpoint/createCollection",
-        "api-reference/endpoint/countCollection",
-        "api-reference/endpoint/listObjects"
-      ]
-    },
-    {
       "group": "Blog",
-      "pages": ["blogs/comparison-to-langchain"]
+      "pages": ["blogs/comparison-to-langchain", "introduction/what-is-rag"]
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "discord": "https://discord.gg/a3K9c8GRGt",
+    "linkedin": "https://www.linkedin.com/company/twilix-io/"
   }
 }

@@ -17,15 +17,15 @@ Content moderation is done in 2 layers:
 ![Content Moderation](/images/content-moderation.png)
 
 A few things to note before setting `includeModeration` to `true`:
+
 - Turning content moderation on will increase latency of requests. This means if you are turning it on, then it won't work well.
 - Content Moderation is currently in beta mode and as with any ML classifier model - is being finetuned currently to improve performance
-
 
 ## Turning it on
 
 In order to turn it on, simply set `includeModeration` to `true`.
 
-## Example 
+## Example
 
 In this example, you want to also compare the content moderation from an input and output perspective.
 
@@ -34,14 +34,28 @@ In this example, you want to also compare the content moderation from an input a
 You can switch these on in the following endpoints:
 
 <CardGroup cols={2}>
-    <Card title="Turn on content moderation for Generative QA" icon="link" href="/api-reference/features/generative-qa">
-        You can read more about this generative QA and how you can integrate this into 
-        a variety of clients such as JS, Go, etc. and how you can build applications such as 
-        document question answering and document extraction.
-    </Card>
-    <Card title="Turn on content moderation for Copilot" icon="link" href="/api-reference/features/copilot">
-        You can read more about this Copilot endpoint and how you can integrate this into 
-        a variety of clients such as JS, Go, etc. and how you can build applications such as
-        coding co-pilots and advanced reasoning tasks powered by GPT-4.
-    </Card>
+  <Card
+    title="Turn on content moderation for Generative QA"
+    icon="link"
+    href="/api-reference/features/generative-qa"
+  >
+    You can read more about this generative QA and how you can integrate this
+    into a variety of clients such as JS, Go, etc. and how you can build
+    applications such as document question answering and document extraction.
+  </Card>
+  <Card
+    title="Turn on content moderation for Copilot"
+    icon="link"
+    href="/api-reference/features/copilot"
+  >
+    You can read more about this Copilot endpoint and how you can integrate this
+    into a variety of clients such as JS, Go, etc. and how you can build
+    applications such as coding co-pilots and advanced reasoning tasks powered
+    by GPT-4.
+  </Card>
 </CardGroup>
+
+<Tip>
+  For more a hands-on support, join our discord community at
+  https://discord.gg/a3K9c8GRGt
+</Tip>

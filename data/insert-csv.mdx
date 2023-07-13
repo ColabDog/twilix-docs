@@ -1,13 +1,13 @@
 ---
 title: Inserting a CSV
-description: "A tutorial on how to insert a CSV with Twilix"
 ---
 
-<Snippet file="installation.mdx"/>
-<Snippet file="installation-python.mdx"/>
+Below is a short example of how you can insert CSVs via python:
+
+<Snippet file="installation-python.mdx" />
 
 After you have installed, you can insert a CSV running
-the following: 
+the following:
 
 ```python
 import csv
@@ -28,10 +28,8 @@ csv_file = 'input.csv'
 # Convert CSV to JSON
 json_data = csv_to_json(csv_file)
 
-from blitzchain import Client 
-client = Client("<YOUR_API_KEY")
+from blitzchain import Client
+client = Client("<YOUR_API_KEY>")
 collection = client.Collection("csvSample")
 collection.insert_objects(json_data)
 ```
-
-
