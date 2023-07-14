@@ -27,12 +27,8 @@ Under the hood, we perform vector search and reranking on the input collection t
   that has been automatically generated for you or you can also supply your own
   to keep track of the conversation on your side.
 </ParamField>
-<ParamField body="includeRerank" type="boolean">
-  if True, it includes a reranking to improve accuracy of retrievals. It will
-  also return a `relevanceScore`.
-</ParamField>
-<ParamField body="minimumRerankScore" type="float">
-  The minimum rerank score.
+<ParamField body="minimumScore" type="float">
+  The minimum score.
 </ParamField>
 <Snippet file="param-include-moderation.mdx" />
 <Snippet file="param-limit.mdx" />

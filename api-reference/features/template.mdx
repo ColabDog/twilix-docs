@@ -1,26 +1,39 @@
 ---
-title: CoPilot
-api: "POST https://app.twilix.io/api/v1/collection/copilot"
-description: "Generative question-answering for code on your collection."
+title: Template Query
+api: "POST https://app.twilix.io/api/v1/collection/template"
+description: "More steerable control over prompting and output formats"
 ---
 
-Copilot returns relevant answers to the user input question.
+For users wanting more flexible control over prompting and outputs as part of their 
+RAG solution, they can do this with our **template** endpoint.
 
-Under the hood, we perform vector search and reranking on the input collection to retrieve the most relevant results, then use the results to generate an answer.
-
-This endpoint has **coding** functionality.
-This endpoint is useful if you are looking to provide a chatbot interface on top of your
-documentation and codebase.
+You want to use this endpoint if you are looking for: 
+  - More fine-grained control over what the model outputs such as specifically HTML or Markdown.
+  - More steerable inputs where you want to provide an example response before adding references
+into the prompt.
 
 <ParamField body="collection" type="string" required>
   The collection to query.
 </ParamField>
-
 <ParamField body="userInput" type="string" required>
-  The message from the user.
+  The template that you want to use. This template uses a `reference` magic in order to provide 
+  users with more flexible control over their LLM outputs. 
+  
+  An example template that is looking for just the returned Markdown could be:
+  ```
+You are a cybersecurity consultant, can users help provide
+a clearer understanding of what is happening? Return 
+this in Markdown with clear headings to separate it out.
+{reference}
+Markdown:
+  ```
+  
+  On our backend, we replace reference with the relevant `promptFields` that you supply. If None
+  is supplied, then it uses all fields in a collection.
+  
 </ParamField>
 <ParamField body="promptFields" type="array">
-  The fields that you want the generation to be based on.
+  The fields that you want to use to feed into the prompt template.
 </ParamField>
 <ParamField body="fields" type="array">
   The fields that you want to be returned as reference. If not specified, it
